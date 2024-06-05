@@ -1,0 +1,56 @@
+create database restaurante;
+use restaurante;
+
+    -- Criar tabela Mesas
+create table funcionario(
+	nome varchar(30) not null,
+    endereço varchar(30) not null,
+    cpf int not null,
+    dataDeNascimento date,
+    especializacao varchar(10) not null,
+    quantidadeDeMesas int
+    )default charset = utf8;
+     
+    -- Criar tabela Mesas
+CREATE TABLE Mesas (
+    mesa_id INT PRIMARY KEY AUTO_INCREMENT,
+    numero_mesa INT NOT NULL,
+    disponivel BOOLEAN NOT NULL DEFAULT TRUE,
+    capacidade INT NOT NULL
+);
+
+-- Criar tabela Clientes
+CREATE TABLE Clientes (
+    cliente_id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    telefone VARCHAR(20) NOT NULL
+);
+
+-- Criar tabela Pedidos
+CREATE TABLE Pedidos (
+    pedido_id INT PRIMARY KEY AUTO_INCREMENT,
+    mesa_id INT NOT NULL,
+    cliente_id INT NOT NULL,
+    data_hora_pedido DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    status_pedido ENUM('pendente', 'em preparo', 'pronto', 'finalizado') NOT NULL DEFAULT 'pendente',
+    observacao VARCHAR(255)
+);
+
+-- Criar tabela Itens_Pedido
+CREATE TABLE Itens_Pedido (
+    item_pedido_id INT PRIMARY KEY AUTO_INCREMENT,
+    pedido_id INT NOT NULL,
+    produto_id INT NOT NULL,
+    quantidade INT NOT NULL,
+    valor_unitario DECIMAL(10,2) NOT NULL,
+    observacao VARCHAR(255)
+);nome
+
+-- Criar tabela Produtos (opcional, se não estiver pronta)
+CREATE TABLE Produtos (
+    produto_id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    descricao VARCHAR(255),
+    categoria VARCHAR(100),
+    preco DECIMAL(10,2) NOT NULL
+);
