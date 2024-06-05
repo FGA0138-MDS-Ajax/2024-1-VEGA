@@ -1,0 +1,65 @@
+[
+    {
+        "id": 1,
+        "img": "/assets/img/blog/blog_1.jpg",
+        "title": "Exquisite Dining Make Moment",
+        "btntext": "Read More",
+        "time": "06 June 2023"
+    },
+    {
+        "id": 2,
+        "img": "/assets/img/blog/blog_2.jpg",
+        "title": "Where Taste Meets Elegance",
+        "btntext": "Read More",
+        "time": "27 June 2023"
+    },
+    {
+        "id": 3,
+        "img": "/assets/img/blog/blog_3.jpg",
+        "title": "Exquisite Dining Make Moment",
+        "btntext": "Read More",
+        "time": "19 June 2023"
+    },
+    {
+        "id": 4,
+        "img": "/assets/img/blog/blog_4.jpg",
+        "title": "Delighting in Gourmet Cuisine",
+        "btntext": "Read More",
+        "time": "23 June 2023"
+    },
+    {
+        "id": 5,
+        "img": "/assets/img/blog/blog_5.jpg",
+        "title": "Exquisite Dining Make Moment",
+        "btntext": "Read More",
+        "time": "03 June 2023"
+    },
+    {
+        "id": 6,
+        "img": "/assets/img/blog/blog_6.jpg",
+        "title": "An Epicurean Paradise",
+        "btntext": "Read More",
+        "time": "01 July 2023"
+    },
+    {
+        "id": 7,
+        "img": "/assets/img/blog/blog_7.jpg",
+        "title": "Where Taste Meets Elegance",
+        "btntext": "Read More",
+        "time": "23 June 2023"
+    },
+    {
+        "id": 8,
+        "img": "/assets/img/blog/blog_8.jpg",
+        "title": "A Gastronomic Adventure",
+        "btntext": "Read More",
+        "time": "03 June 2023"
+    },
+    {
+        "id": 9,
+        "img": "/assets/img/blog/blog_9.jpg",
+        "title": "Where Flavors Meet Passion",
+        "btntext": "Read More",
+        "time": "01 July 2023"
+    }
+]

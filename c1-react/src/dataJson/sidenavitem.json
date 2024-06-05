@@ -1,0 +1,7 @@
+[
+  { "title": "Home", "link": "/", "img": "/fullWM_about.jpg" },
+  { "title": "About", "link": "/about", "img": "/fullWM_about.jpg" },
+  { "title": "Menu", "link": "/menu", "img": "/fullWM_menu.jpg" },
+  { "title": "Chef", "link": "/chef", "img": "/fullWM_chef.jpg" },
+  { "title": "Contact", "link": "/contact", "img": "/fullWM_contact.jpg" }
+]

@@ -1,0 +1,49 @@
+
+.text-btn {
+    margin: 15px 0px;
+}
+
+.text-btn1 {
+    position: relative;
+    padding: 15px;
+    color: #fff;
+    font-weight: 400;
+    cursor: pointer;
+    border-bottom: 1px solid #ffd28d;
+    border-top: 1px solid #ffd28d;
+    outline: none;
+    z-index: 10;
+}
+
+.text-btn1:hover {
+    color: #fff;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+}
+
+.text-btn1:after,
+.text-btn1:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 1px;
+    width: 0;
+    background: #ffd28d;
+    transition: all 0.4s ease;
+}
+
+.text-btn1:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+}
+
+.text-btn1:hover:after,
+.text-btn1:hover:before {
+    width: 100%;
+    transition-delay: 1s;
+    transition: all 1s ease;
+}

@@ -1,0 +1,242 @@
+[
+  {
+    "foodMenu": [
+      {
+        "title": "Spaghetti alla Carbonara",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "Caviar-topped Oysters",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "Croquetas de jamón",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "Foie Gras and Fig Terrine",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "paella valenciana",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "Truffle-infused Filet Mignon",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "Peri Peri Prawns",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "Butter Poached Lobster",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "Golden Saffron Risotto",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "Herb-Crusted Rack of Lamb",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      }
+    ],
+    "headingtext": {
+      "title": "Appetizers",
+      "subTitle": "Appetizers",
+      "tyle": "center"
+    },
+    "bgImgShow": "/assets/img/bg/menuBg.png"
+  },
+  {
+    "foodMenu": [
+      {
+        "title": "Vienetta (Netherlands)",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show_2.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "Apple Strudel (Austria)",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show_2.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "Tiramisu",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show_2.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "Foie Gras and Fig Terrine",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show_2.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "Apple Strudel",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show_2.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "Truffle-infused Filet Mignon",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show_2.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "Crème Brûlée",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show_2.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "Butter Poached Lobster",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show_2.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "Black Forest Cake",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show_2.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "Pastéis de Nata (Portugal)",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show_2.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      }
+    ],
+    "bgImgShow": "/assets/img/bg/barMenuBg.png",
+    "headingtext": {
+      "title": "Bar Items",
+      "subTitle": "Juice Bar",
+      "tyle": "center"
+    }
+  },
+  {
+    "foodMenu": [
+      {
+        "title": "Guinness Irelandian",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show_3.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "Scotch Whisky Scotland",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show_3.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "Aperol Spritz Italian",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show_3.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "Jägermeister Germany",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show_3.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "Pilsner Urquell Czech",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show_3.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "Port Wine (Portugal)",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show_3.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "Pavlova (New Zealand)",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show_3.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "Vodka Russia / Poland",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show_3.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "Vodka Russia / Poland",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show_3.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      },
+      {
+        "title": "Aperol Spritz Italian",
+        "price": "$49",
+        "image": "/assets/img/itemShow/item-show_3.png",
+        "subTitle": "Lorem passionate chefs masterfully",
+        "priceSubTitle": "Extra free juice"
+      }
+    ],
+    "headingtext": {
+      "title": "Desserts",
+      "subTitle": "Sweet dreams",
+      "tyle": "center"
+    },
+    "bgImgShow": "/assets/img/bg/bessertsMenuBg.png"
+  }
+]

@@ -1,0 +1,42 @@
+.gallery-hover {
+  position: relative;
+  width: 405px;
+  height: 500px;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+  .gallery-img-overlay {
+    position: absolute;
+    top: 0;
+    background: $about_bg;
+    padding: 36px;
+    width: 80%;
+    height: 88%;
+    margin: 30px 10%;
+    overflow: hidden;
+    opacity: 0;
+    cursor: default;
+    transition: all 0.4s ease-in-out;
+  }
+  & > .gallery-img-overlay:hover {
+    opacity: 1;
+  }
+  .images-info {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-around;
+  }
+  .gallery-img-icon {
+    align-self: center;
+    margin-bottom: -200px;
+    cursor: pointer;
+  }
+  .gallery-hover-info {
+    cursor: default;
+    align-self: center;
+    margin-bottom: -150px;
+  }
+}

@@ -1,0 +1,140 @@
+[
+    {
+        "id": 1,
+        "posation": "Head of Chef",
+        "name": "Byron Smith",
+        "img": "/assets/img/chef/chef_1.jpg",
+        "videolink": "https://www.youtube.com/watch?v=UsD1MhKBmD4",
+        "shortDesp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that. Lorem to our restaurant, where culinary artistry meets exceptional dining exp eriences. At, we strive to create a gastronomic haven that.",
+        "desp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that tantalizes your taste buds and leaves you with unforgettable memories. Welcome to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic.,",
+        "Children": [
+            {
+                "link": "https://www.facebook.com/",
+                "name": "facebook"
+            },
+            {
+                "link": "https://www.linkedin.com/",
+                "name": "linkedin"
+            },
+            {
+                "link": "https://www.instagram.com/",
+                "name": "instagram"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "posation": "Italian Specialist",
+        "name": "Craig Martin",
+        "img": "/assets/img/chef/chef_2.jpg",
+        "videolink": "https://www.youtube.com/watch?v=UsD1MhKBmD4",
+        "shortDesp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that. Lorem to our restaurant, where culinary artistry meets exceptional dining exp eriences. At, we strive to create a gastronomic haven that.",
+        "desp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that tantalizes your taste buds and leaves you with unforgettable memories. Welcome to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic.,",
+        "Children": [
+            {
+                "link": "https://www.facebook.com/",
+                "name": "facebook"
+            },
+            {
+                "link": "https://www.linkedin.com/",
+                "name": "linkedin"
+            },
+            {
+                "link": "https://www.instagram.com/",
+                "name": "instagram"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "posation": "Thai Specialist",
+        "name": "Italian Specialist",
+        "img": "/assets/img/chef/chef_3.jpg",
+        "videolink": "https://www.youtube.com/watch?v=UsD1MhKBmD4",
+        "shortDesp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that. Lorem to our restaurant, where culinary artistry meets exceptional dining exp eriences. At, we strive to create a gastronomic haven that.",
+        "desp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that tantalizes your taste buds and leaves you with unforgettable memories. Welcome to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic.,",
+        "Children": [
+            {
+                "link": "https://www.facebook.com/",
+                "name": "facebook"
+            },
+            {
+                "link": "https://www.linkedin.com/",
+                "name": "linkedin"
+            },
+            {
+                "link": "https://www.instagram.com/",
+                "name": "instagram"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "posation": "Italian Specialist",
+        "name": "Andrew Cannon",
+        "img": "/assets/img/chef/chef_4.jpg",
+        "videolink": "https://www.youtube.com/watch?v=UsD1MhKBmD4",
+        "shortDesp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that. Lorem to our restaurant, where culinary artistry meets exceptional dining exp eriences. At, we strive to create a gastronomic haven that.",
+        "desp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that tantalizes your taste buds and leaves you with unforgettable memories. Welcome to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic.,",
+        "Children": [
+            {
+                "link": "https://www.facebook.com/",
+                "name": "facebook"
+            },
+            {
+                "link": "https://www.linkedin.com/",
+                "name": "linkedin"
+            },
+            {
+                "link": "https://www.instagram.com/",
+                "name": "instagram"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "posation": "Italian Specialist",
+        "name": "Wesley Story",
+        "img": "/assets/img/chef/chef_5.jpg",
+        "videolink": "https://www.youtube.com/watch?v=UsD1MhKBmD4",
+        "shortDesp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that. Lorem to our restaurant, where culinary artistry meets exceptional dining exp eriences. At, we strive to create a gastronomic haven that.",
+        "desp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that tantalizes your taste buds and leaves you with unforgettable memories. Welcome to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic.,",
+        "Children": [
+            {
+                "link": "https://www.facebook.com/",
+                "name": "facebook"
+            },
+            {
+                "link": "https://www.linkedin.com/",
+                "name": "linkedin"
+            },
+            {
+                "link": "https://www.instagram.com/",
+                "name": "instagram"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "posation": "Michael Laseter",
+        "name": "Michael Laseter",
+        "img": "/assets/img/chef/chef_6.jpg",
+        "videolink": "https://www.youtube.com/watch?v=UsD1MhKBmD4",
+        "shortDesp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that. Lorem to our restaurant, where culinary artistry meets exceptional dining exp eriences. At, we strive to create a gastronomic haven that.",
+        "desp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that tantalizes your taste buds and leaves you with unforgettable memories. Welcome to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic.,",
+        "Children": [
+            {
+                "link": "https://www.facebook.com/",
+                "name": "facebook"
+            },
+            {
+                "link": "https://www.linkedin.com/",
+                "name": "linkedin"
+            },
+            {
+                "link": "https://www.instagram.com/",
+                "name": "instagram"
+            }
+        ]
+    }
+]

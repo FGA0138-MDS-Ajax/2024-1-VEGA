@@ -1,0 +1,55 @@
+.ak-munu_toggles-top {
+    display: inline-block;
+    width: 30px;
+    height: 27px;
+    cursor: pointer;
+    position: absolute;
+    span,
+    span:before,
+    span:after {
+        width: 100%;
+        height: 2px;
+        background-color: $yellow;
+        display: block;
+    }
+    span {
+        margin: 0 auto;
+        position: relative;
+        top: 12px;
+        transition-duration: 0s;
+        transition-delay: 0.2s;
+        &:before {
+            content: "";
+            position: absolute;
+            margin-top: -9px;
+            transition-property: margin, transform;
+            transition-duration: 0.2s;
+            transition-delay: 0.2s, 0s;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            margin-top: 9px;
+            transition-property: margin, transform;
+            transition-duration: 0.2s;
+            transition-delay: 0.2s, 0s;
+        }
+    }
+}
+
+.ak-munu_toggles-top.active {
+    span {
+        background-color: rgba(0, 0, 0, 0);
+        transition-delay: 0.2s;
+        &:before {
+            margin-top: 0;
+            transform: rotate(45deg);
+            transition-delay: 0s, 0.2s;
+        }
+        &:after {
+            margin-top: 0;
+            transform: rotate(-45deg);
+            transition-delay: 0s, 0.2s;
+        }
+    }
+}

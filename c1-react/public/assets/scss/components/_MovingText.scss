@@ -1,0 +1,53 @@
+.ak-moving-section-wrap {
+    overflow: hidden;
+    background: #05161A;
+}
+
+.ak-moving-section-in {
+    display: flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    min-width: 100%;
+}
+
+.ak-moving-section {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    padding: 15px 0px;
+    animation: slide-left 20s linear infinite;
+
+    span {
+        color: $white;
+    }
+}
+
+.ak-animation-speed-10 {
+    animation: slide-left 10s linear infinite;
+}
+
+.ak-animation-speed-30 {
+    animation: slide-left 30s linear infinite;
+}
+
+.ak-animation-speed-40 {
+    animation: slide-left 40s linear infinite;
+}
+
+.ak-animation-speed-50 {
+    animation: slide-left 50s linear infinite;
+}
+
+.ak-moving-section-hover-push:hover .ak-moving-section {
+    animation-play-state: paused;
+}
+
+@keyframes slide-left {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}

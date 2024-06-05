@@ -1,0 +1,272 @@
+[
+    {
+        "id": 1,
+        "img": "/assets/img/portfolio/portfolio_1.jpg",
+        "title": "Spaghetti Carbonara",
+        "subtitle": "Desserts",
+        "portfoliodetails": {
+            "category": "Desserts",
+            "date": "5 July 2023",
+            "desp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that. Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that tantalizes your taste buds and leaves you with unforgettable memories.",
+            "shortdesp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that tantalizes your taste buds and leaves you with unforgettable memories. ",
+            "tags": [
+                "Tasty",
+                "Sweet"
+            ],
+            "portfolioSlider": [
+                {
+                    "img": "/assets/img/portfolio/portfolio.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                }
+            ]
+        }
+    },
+    {
+        "id": 2,
+        "img": "/assets/img/portfolio/portfolio_2.jpg",
+        "title": "Spaghetti Carbonara",
+        "subtitle": "Desserts",
+        "portfoliodetails": {
+            "category": "Desserts",
+            "date": "5 July 2023",
+            "desp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that. Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that tantalizes your taste buds and leaves you with unforgettable memories.",
+            "shortdesp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that tantalizes your taste buds and leaves you with unforgettable memories. ",
+            "tags": [
+                "Tasty",
+                "Sweet"
+            ],
+            "portfolioSlider": [
+                {
+                    "img": "/assets/img/portfolio/portfolio.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                }
+            ]
+        }
+    },
+    {
+        "id": 3,
+        "img": "/assets/img/portfolio/portfolio_3.jpg",
+        "title": "Spaghetti Carbonara",
+        "subtitle": "Desserts",
+        "portfoliodetails": {
+            "category": "Desserts",
+            "date": "5 July 2023",
+            "desp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that. Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that tantalizes your taste buds and leaves you with unforgettable memories.",
+            "shortdesp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that tantalizes your taste buds and leaves you with unforgettable memories. ",
+            "tags": [
+                "Tasty",
+                "Sweet"
+            ],
+            "portfolioSlider": [
+                {
+                    "img": "/assets/img/portfolio/portfolio.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                }
+            ]
+        }
+    },
+    {
+        "id": 4,
+        "img": "/assets/img/portfolio/portfolio_4.jpg",
+        "title": "Spaghetti Carbonara",
+        "subtitle": "Desserts",
+        "portfoliodetails": {
+            "category": "Desserts",
+            "date": "5 July 2023",
+            "desp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that. Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that tantalizes your taste buds and leaves you with unforgettable memories.",
+            "shortdesp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that tantalizes your taste buds and leaves you with unforgettable memories. ",
+            "tags": [
+                "Tasty",
+                "Sweet"
+            ],
+            "portfolioSlider": [
+                {
+                    "img": "/assets/img/portfolio/portfolio.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                }
+            ]
+        }
+    },
+    {
+        "id": 5,
+        "img": "/assets/img/portfolio/portfolio_5.jpg",
+        "title": "Spaghetti Carbonara",
+        "subtitle": "Desserts",
+        "portfoliodetails": {
+            "category": "Desserts",
+            "date": "5 July 2023",
+            "desp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that. Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that tantalizes your taste buds and leaves you with unforgettable memories.",
+            "shortdesp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that tantalizes your taste buds and leaves you with unforgettable memories. ",
+            "tags": [
+                "Tasty",
+                "Sweet"
+            ],
+            "portfolioSlider": [
+                {
+                    "img": "/assets/img/portfolio/portfolio.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                }
+            ]
+        }
+    },
+    {
+        "id": 6,
+        "img": "/assets/img/portfolio/portfolio_6.jpg",
+        "title": "Spaghetti Carbonara",
+        "subtitle": "Desserts",
+        "portfoliodetails": {
+            "category": "Desserts",
+            "date": "5 July 2023",
+            "desp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that. Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that tantalizes your taste buds and leaves you with unforgettable memories.",
+            "shortdesp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that tantalizes your taste buds and leaves you with unforgettable memories. ",
+            "tags": [
+                "Tasty",
+                "Sweet"
+            ],
+            "portfolioSlider": [
+                {
+                    "img": "/assets/img/portfolio/portfolio.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                }
+            ]
+        }
+    },
+    {
+        "id": 7,
+        "img": "/assets/img/portfolio/portfolio_7.jpg",
+        "title": "Spaghetti Carbonara",
+        "subtitle": "Desserts",
+        "portfoliodetails": {
+            "category": "Desserts",
+            "date": "5 July 2023",
+            "desp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that. Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that tantalizes your taste buds and leaves you with unforgettable memories.",
+            "shortdesp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that tantalizes your taste buds and leaves you with unforgettable memories. ",
+            "tags": [
+                "Tasty",
+                "Sweet"
+            ],
+            "portfolioSlider": [
+                {
+                    "img": "/assets/img/portfolio/portfolio.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                }
+            ]
+        }
+    },
+    {
+        "id": 8,
+        "img": "/assets/img/portfolio/portfolio_8.jpg",
+        "title": "Spaghetti Carbonara",
+        "subtitle": "Desserts",
+        "portfoliodetails": {
+            "category": "Desserts",
+            "date": "5 July 2023",
+            "desp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that. Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that tantalizes your taste buds and leaves you with unforgettable memories.",
+            "shortdesp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that tantalizes your taste buds and leaves you with unforgettable memories. ",
+            "tags": [
+                "Tasty",
+                "Sweet"
+            ],
+            "portfolioSlider": [
+                {
+                    "img": "/assets/img/portfolio/portfolio.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                }
+            ]
+        }
+    },
+    {
+        "id": 9,
+        "img": "/assets/img/portfolio/portfolio_9.jpg",
+        "title": "Spaghetti Carbonara",
+        "subtitle": "Desserts",
+        "portfoliodetails": {
+            "category": "Desserts",
+            "date": "5 July 2023",
+            "desp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that. Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that tantalizes your taste buds and leaves you with unforgettable memories.",
+            "shortdesp": "Lorem to our restaurant, where culinary artistry meets exceptional dining experiences. At, we strive to create a gastronomic haven that tantalizes your taste buds and leaves you with unforgettable memories. ",
+            "tags": [
+                "Tasty",
+                "Sweet"
+            ],
+            "portfolioSlider": [
+                {
+                    "img": "/assets/img/portfolio/portfolio.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                },
+                {
+                    "img": "/assets/img/portfolio/portfolio_details.jpg"
+                }
+            ]
+        }
+    }
+]

@@ -1,0 +1,450 @@
+.ak-slider-hero-1 {
+  overflow: hidden;
+  width: 100%;
+
+  .swiper-slide {
+    width: 100% !important;
+  }
+}
+
+.ak-hero.ak-style1 {
+  min-height: calc(100vh + 150px);
+  position: relative;
+
+  &.heignt-100vh {
+    min-height: calc(100vh + 0px);
+
+    .hero-text-section {
+      margin-left: 0px;
+    }
+  }
+
+  .ak-hero-bg {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-position: center;
+    left: 0;
+    top: 0;
+    z-index: 9;
+  }
+
+  .hero-text-section {
+    z-index: 10;
+    margin-left: 160px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    .swiper-slide-active {
+      .slider-info {
+        .hero-title {
+          .mini-title {
+            font-style: italic;
+            text-transform: capitalize;
+            font-family: Baskervville;
+            font-size: 18px;
+            font-weight: 400;
+            color: $yellow;
+            margin-bottom: 10px;
+          }
+
+          .hero-main-title {
+            color: $white;
+            top: 0px;
+            opacity: 1;
+            transition-delay: 0.2s;
+          }
+
+          .hero-main-title-1 {
+            top: 0px;
+            opacity: 1;
+            transition-delay: 0.4s;
+          }
+        }
+
+        .hero-sub-text {
+          opacity: 1;
+          top: 0px;
+          transition-delay: 0.6s;
+        }
+
+        .hero-btn.style-1 {
+          opacity: 1;
+          top: 0px;
+          transition-delay: 0.8s;
+        }
+      }
+    }
+
+    .slider-info {
+      width: 100%;
+
+      .hero-title {
+        text-transform: uppercase;
+
+        .hero-main-title {
+          color: $white;
+          position: relative;
+          top: 40px;
+          opacity: 0;
+          transition: all 0.5s cubic-bezier(0.7, -0.56, 0.27, 1.6);
+        }
+
+        .hero-main-title-1 {
+          font-style: italic;
+          border-bottom: 1px solid $border;
+          display: inline-flex;
+          position: relative;
+          left: 10%;
+          top: 40px;
+          opacity: 0;
+          transition: all 0.5s cubic-bezier(0.7, -0.56, 0.27, 1.6);
+
+          &.style-2 {
+            left: 0%;
+            border: none;
+            font-style: normal;
+          }
+        }
+      }
+
+      .hero-sub-text {
+        position: relative;
+        top: 30px;
+        opacity: 0;
+        transition: all 0.6s cubic-bezier(0.7, -0.56, 0.27, 1.6);
+        margin-right: 200px;
+        margin-top: 20px;
+        font-size: 18px;
+        line-height: 27px;
+        letter-spacing: 0.36px;
+      }
+
+      .hero-btn.style-1 {
+        position: relative;
+        top: 20px;
+        opacity: 0;
+        transition: all 0.6s cubic-bezier(0.7, -0.56, 0.27, 1.6);
+      }
+    }
+  }
+}
+
+.ak-swiper-controll-hero-1 {
+  z-index: 100;
+  position: absolute;
+  top: 40vh;
+  right: 2.5%;
+
+  .ak-swiper-navigation-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 130px;
+
+    .hero-swiper-next {
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      .btn-cricle {
+        position: absolute;
+        height: 100px;
+        width: 100px;
+        border-radius: 50% 50% 50% 50%;
+        border-right: 1px solid $yellow;
+        transition: all 0.3s ease-in-out;
+        transform: rotate(180deg);
+      }
+
+      &:hover > .btn-cricle {
+        border-radius: 100%;
+        border: 1px solid $yellow;
+      }
+
+      &:hover > .btn-arrow {
+        transform: translateX(0px);
+      }
+
+      .btn-arrow {
+        transition: all 0.3s ease-in-out;
+        position: absolute;
+        transform: translateX(10px);
+
+        svg {
+          width: 40px;
+          height: 100px;
+        }
+      }
+    }
+
+    .hero-swiper-prev {
+      position: relative;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+
+      .btn-cricle {
+        position: absolute;
+        height: 100px;
+        width: 100px;
+        border-radius: 50% 50% 50% 50%;
+        border-right: 1px solid $yellow;
+        transition: all 0.3s ease-in-out;
+        transform: rotate(180deg);
+      }
+
+      &:hover > .btn-cricle {
+        border-radius: 100%;
+        border: 1px solid $yellow;
+      }
+
+      &:hover > .btn-arrow {
+        transform: translateX(20px);
+      }
+
+      .btn-arrow {
+        transition: all 0.3s ease-in-out;
+        position: absolute;
+        transform: translateX(10px);
+
+        svg {
+          width: 40px;
+          height: 100px;
+        }
+      }
+    }
+  }
+}
+
+.ak-slider-hero-2 {
+  overflow: hidden;
+  width: 50%;
+
+  .swiper-slide {
+    width: 100%;
+  }
+}
+
+.ak-swiper-controll-hero-2 {
+  z-index: 10;
+  position: absolute;
+  bottom: 25vh;
+  text-align: center;
+  left: 46%;
+
+  .ak-swiper-navigation-wrap {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-right: 372px;
+
+    .hero-swiper-next {
+      position: relative;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+
+      .btn-cricle {
+        position: absolute;
+        height: 55px;
+        width: 56px;
+        border-radius: 50% 50% 50% 50%;
+        border-right: 1px solid $yellow;
+        transition: all 0.3s ease-in-out;
+      }
+
+      &:hover > .btn-cricle {
+        border: 1px solid $yellow;
+        border-radius: 100%;
+      }
+
+      &:hover > .btn-arrow {
+        transform: translateX(10px);
+      }
+
+      .btn-arrow {
+        transition: all 0.3s ease-in-out;
+        position: absolute;
+
+        svg {
+          width: 40px;
+          height: 55px;
+        }
+      }
+    }
+
+    .hero-swiper-prev {
+      position: relative;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+
+      .btn-cricle {
+        position: absolute;
+        height: 55px;
+        width: 56px;
+        border-radius: 50% 50% 50% 50%;
+        border-right: 1px solid $yellow;
+        transition: all 0.3s ease-in-out;
+        transform: rotate(180deg);
+      }
+
+      &:hover > .btn-cricle {
+        border-radius: 100%;
+        border: 1px solid $yellow;
+      }
+
+      &:hover > .btn-arrow {
+        transform: translateX(0px);
+      }
+
+      .btn-arrow {
+        transition: all 0.3s ease-in-out;
+        position: absolute;
+        transform: translateX(10px);
+
+        svg {
+          width: 40px;
+          height: 55px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1451px) and (max-width: 1746px) {
+  .ak-hero.ak-style1 {
+    .hero-text-section {
+      .slider-info {
+        width: 100%;
+
+        .hero-title {
+          .hero-main-title,
+          .hero-main-title-1 {
+            font-size: 58px;
+          }
+        }
+
+        .hero-sub-text {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 991px) and (max-width: 1450px) {
+  .ak-hero.ak-style1 {
+    display: flex;
+
+    .hero-text-section {
+      .slider-info {
+        width: 100%;
+
+        .hero-title {
+          .hero-main-title,
+          .hero-main-title-1 {
+            font-size: 48px;
+          }
+        }
+
+        .hero-sub-text {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .ak-hero.ak-style1 {
+    display: flex;
+    min-height: calc(100vh + 0px);
+
+    .hero-text-section {
+      margin-left: 30px;
+
+      .slider-info {
+        width: 90%;
+
+        .hero-title {
+          text-align: start;
+
+          .hero-main-title,
+          .hero-main-title-1 {
+            font-size: 58px;
+          }
+        }
+
+        .hero-sub-text {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .ak-slider-hero-2 {
+    width: 100%;
+  }
+
+  .ak-swiper-controll-hero-2 {
+    margin: 0px;
+    bottom: 13vh;
+    left: 0;
+    margin-left: 43px;
+
+    .ak-swiper-navigation-wrap {
+      margin-right: 58px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .ak-hero.ak-style1 {
+    min-height: calc(100vh + 10px);
+
+    .hero-text-section {
+      margin-left: 0px;
+
+      .slider-info {
+        width: 100%;
+
+        .hero-title {
+          text-align: start;
+
+          .hero-main-title {
+            font-size: 52px;
+          }
+
+          .hero-main-title-1 {
+            font-size: 48px;
+            left: 0%;
+          }
+        }
+
+        .hero-sub-text {
+          font-size: 16px;
+          margin-right: 20px;
+          margin-top: 0px;
+        }
+      }
+    }
+  }
+
+  .ak-swiper-controll-hero-1 {
+    right: 10%;
+  }
+
+  .ak-slider-hero-2 {
+    width: 100%;
+  }
+
+  .ak-swiper-controll-hero-2 {
+    margin: 0px;
+    margin-left: 13px;
+
+    .ak-swiper-navigation-wrap {
+      margin-right: 0px;
+      justify-content: start;
+    }
+  }
+}

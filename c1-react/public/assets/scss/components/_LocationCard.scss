@@ -1,0 +1,90 @@
+.ak-loaction-hr {
+    @include ak-hr;
+}
+
+.location-card {
+    display: flex;
+    flex-wrap: wrap;
+
+    .location-card-item {
+        padding: 50px;
+
+        .card-title {
+            margin-top: 17px;
+            text-transform: uppercase;
+            color: $primary;
+        }
+
+        .card-subtext {
+            margin-top: 17px;
+        }
+
+        &.style-1 {
+            border-right: 1px solid $border;
+        }
+
+        .card-icon {
+            transition: all 1s ease-in-out;
+            height: 41px;
+            width: 40px;
+            border: 1px solid $white;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        &:hover .card-icon {
+            border: none;
+            background-color: $yellow;
+
+            svg {
+                path {
+                    fill: $black;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .location-card {
+        margin-left: 0px;
+
+        .location-card-item {
+            flex-basis: 40%;
+            padding: 17px;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .location-card {
+        flex-wrap: wrap;
+        margin-left: 0px;
+        text-align: center;
+
+        .location-card-item {
+            padding: 15px 0px;
+            flex-basis: 100%;
+
+            &.style-1 {
+                border-right: none;
+            }
+        }
+    }
+
+    .ak-loaction-hr {
+        display: none;
+    }
+}
+
+@keyframes ripple {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        width: 1px;
+        height: 200%;
+        opacity: 0;
+    }
+}

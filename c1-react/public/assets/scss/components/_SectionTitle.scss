@@ -1,0 +1,128 @@
+
+.ak-section-heading.ak-style-1 {
+    overflow: hidden;
+    .ak-section-subtitle {
+        font-family: Baskervville;
+        color: $primary;
+        font-size: 18px;
+        font-style: italic;
+        font-weight: 400;
+        a {
+            font-size: 18px;
+        }
+    }
+    .ak-section-title {
+        font-size: 60px;
+        font-weight: 400;
+        margin-bottom: 0;
+        color: $yellow;
+        &.page-title-anim {
+            text-transform: capitalize;
+        }
+    }
+    &.ak-color-1 {
+        .ak-section-subtitle {
+            color: $white;
+        }
+    }
+    &.ak-type-1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+.ak-section-heading.ak-sytle-2 {
+    .mini-title.style-1 {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        margin-bottom: 20px;
+        .mini-title-border {
+            width: 50px;
+            height: 1px;
+            background-color: $primary;
+        }
+        .mini-text {
+            font-family: Prompt;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            text-transform: uppercase;
+            color: $primary;
+        }
+    }
+    .section-title {
+        font-size: 60px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 115%;
+        // text-transform: capitalize;
+        color: $primary;
+        margin-bottom: 25px;
+        span {
+            color: $white;
+        }
+    }
+    .section-desp {
+        font-family: Prompt;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+    }
+}
+
+
+@media screen and (max-width: 991px) {
+
+    .ak-section-heading.ak-style-1 {
+        &.ak-type-1 {
+            flex-direction: column;
+            .ak-section-heading-text {
+                max-width: 100%;
+            }
+            .ak-section-heading-right {
+                margin-top: 40px;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    .ak-section-heading.ak-style-1 {
+        &.ak-type-1 {
+            flex-direction: column;
+            // align-items: flex-start;
+            &.page-top-title {
+                align-items: center;
+            }
+            .ak-section-heading-text {
+                max-width: 100%;
+            }
+            .ak-section-heading-right {
+                margin-top: 40px;
+            }
+        }
+    }
+    .ak-section-heading.ak-style-1 {
+        .ak-section-title {
+            font-size: 32px;
+        }
+        .ak-section-subtitle {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .ak-section-title-3 {
+            font-size: 26px;
+        }
+    }
+    .ak-section-heading.ak-sytle-2 {
+        .section-title {
+            font-size: 32px;
+        }
+    }
+}

@@ -1,0 +1,318 @@
+.ak-slider-2 {
+  overflow: hidden;
+  width: 100vw;
+  .swiper-slide {
+    width: 25% !important;
+  }
+  .swiper-slide-active {
+    .ak-card {
+      .card-info {
+        opacity: 1;
+        bottom: 0;
+      }
+    }
+  }
+}
+
+.ak-pagination-2.ak-style1 {
+  display: flex;
+  justify-content: center;
+  z-index: 20;
+  width: 20% !important;
+  .swiper-pagination-bullet {
+    height: 9px;
+    width: 10px;
+    background-color: transparent;
+    border: 1px solid $border;
+    &.swiper-pagination-bullet-active {
+      border: 1px solid $yellow;
+      background-color: $yellow;
+    }
+    border-radius: 50%;
+    margin: 5px;
+    cursor: pointer;
+    position: relative;
+    opacity: 1;
+    &::before {
+      content: "";
+      position: absolute;
+      height: 5px;
+      width: 5px;
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: $primary;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    &.swiper-pagination-bullet-active {
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.ak-next-prev-2 {
+  margin-top: 30px;
+  position: relative;
+  &.ak-style-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    gap: 36px;
+    @media screen and (max-width: 767px) {
+      gap: 25px;
+    }
+  }
+}
+
+.ak-slider-4 {
+  overflow: hidden;
+  width: 100vw;
+  .swiper-slide {
+    width: 100%;
+    position: relative;
+    z-index: -9;
+  }
+}
+.ak-swiper-controll-4 {
+  position: absolute;
+  bottom: 50px;
+  z-index: 10;
+  .ak-swiper-navigation-wrap-4 {
+    display: flex;
+    gap: 100px;
+    padding: 30px;
+    .ak-swiper-button-next-4 {
+      position: relative;
+      transition: all 0.3s ease-in-out;
+      .btn-cricle {
+        position: absolute;
+        height: 55px;
+        width: 56px;
+        border-radius: 50% 50% 50% 50%;
+        border-right: 1px solid $yellow;
+        transition: all 0.3s ease-in-out;
+      }
+      &:hover > .btn-cricle {
+        border: 1px solid $yellow;
+        border-radius: 100%;
+      }
+      &:hover > .btn-arrow {
+        transform: translateX(10px);
+      }
+      .btn-arrow {
+        transition: all 0.3s ease-in-out;
+        position: absolute;
+        svg {
+          width: 40px;
+          height: 55px;
+        }
+      }
+    }
+    .ak-swiper-button-prev-4 {
+      position: relative;
+      transition: all 0.3s ease-in-out;
+      .btn-cricle {
+        position: absolute;
+        height: 55px;
+        width: 56px;
+        border-radius: 50% 50% 50% 50%;
+        border-right: 1px solid $yellow;
+        transition: all 0.3s ease-in-out;
+        transform: rotate(180deg);
+      }
+      &:hover > .btn-cricle {
+        border-radius: 100%;
+        border: 1px solid $yellow;
+      }
+      &:hover > .btn-arrow {
+        transform: translateX(0px);
+      }
+      .btn-arrow {
+        transition: all 0.3s ease-in-out;
+        position: absolute;
+        transform: translateX(10px);
+        svg {
+          width: 40px;
+          height: 55px;
+        }
+      }
+    }
+  }
+}
+
+.ak-card.ak-style-1 {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  transition: all 0.5s ease;
+  .ak-card-img {
+    width: 100%;
+  }
+  .card-info {
+    position: absolute;
+    margin: 0px 30px 37px 30px;
+    left: 5%;
+    bottom: -60px;
+    opacity: 0;
+    background-color: #040d10;
+    transition: all 0.3s ease-in-out;
+    .card-text {
+      padding: 45px 50px 45px 30px;
+      .card-title {
+        color: $yellow;
+      }
+      .card-subtitle {
+        color: $white;
+        &:hover {
+          color: $yellow;
+        }
+      }
+    }
+  }
+  &:hover > .card-info {
+    bottom: 0px;
+    opacity: 1;
+  }
+}
+
+.ak-portfolio-details-border {
+  @include ak-hr;
+  max-width: 250px;
+  margin-top: 125px;
+  position: absolute;
+}
+
+.portfolio-section {
+  display: flex;
+  gap: 108px;
+  align-content: center;
+  .portfolio-info {
+    flex-shrink: 0;
+    h2 {
+      margin-top: 85px;
+      margin-bottom: 85px;
+    }
+    h6 {
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      text-transform: uppercase;
+      border-bottom: 1px solid $border;
+      word-spacing: 10px;
+      span {
+        color: $white;
+        text-transform: capitalize;
+        font-family: Prompt;
+      }
+    }
+  }
+  .portfolio-slider {
+    overflow: hidden;
+  }
+}
+
+.portfolio-details {
+  display: flex;
+  align-items: center;
+  .portfolio-details-text {
+    padding-right: 30px;
+    border-right: 1px solid $border;
+  }
+  .portfolio-details-icon {
+    padding-left: 40px;
+    display: flex;
+    gap: 15px;
+    h6 {
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+    a:hover > svg > path {
+      fill: $yellow;
+    }
+  }
+}
+
+@media screen and (max-width: 1740px) {
+  .ak-portfolio-details-border {
+    position: relative;
+    display: none;
+    margin-top: 0px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .ak-portfolio-details-border {
+    position: relative;
+    display: none;
+    margin-top: 0px;
+  }
+  .portfolio-section {
+    flex-wrap: wrap;
+    gap: 60px;
+    .portfolio-info {
+      flex-shrink: 0;
+      h2 {
+        margin-top: 0px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+  .ak-slider-2 {
+    .swiper-slide {
+      width: 50% !important;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .portfolio-section {
+    flex-wrap: wrap;
+    gap: 30px;
+    .portfolio-info {
+      flex-shrink: 1;
+      .anim-title-3 {
+        margin-top: 0px;
+        margin-bottom: 30px;
+        font-size: 32px;
+      }
+    }
+  }
+  .portfolio-details {
+    flex-wrap: wrap;
+    .portfolio-details-text {
+      padding: 0px;
+      border: none;
+    }
+    .portfolio-details-icon {
+      margin-top: 30px;
+      padding: 0px;
+    }
+  }
+  .ak-card.ak-style-1 {
+    .card-info {
+      left: 0%;
+      margin: 0px 37px 37px 37px;
+      .card-text {
+        padding: 38px 20px 38px 19px;
+        .card-title {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+  .ak-slider-2 {
+    .swiper-slide {
+      width: 100% !important;
+    }
+  }
+  .ak-pagination-2.ak-style1 {
+    width: 60% !important;
+    .swiper-pagination-bullet {
+      margin: 5px;
+    }
+  }
+}

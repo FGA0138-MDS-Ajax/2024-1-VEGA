@@ -1,0 +1,116 @@
+/*--------------------------------------------------------------
+  14. Opening Hour
+----------------------------------------------------------------*/
+
+.ak-bg-secendary {
+    background: #05161A;
+}
+
+.opening-hour {
+    display: flex;
+    gap: 185px;
+    align-items: center;
+    &.type-2 {
+        gap: 132px;
+    }
+    .opening-hour-img-section {
+        min-width: 760px;
+        overflow: hidden;
+        max-height: 765px;
+        &.style-2 {
+            min-width: 554.546px;
+            height: 555px;
+        }
+    }
+    .opening-hour-text-section {
+        padding: 0px 20% 0px 0px;
+        &.type-2 {
+            padding: 0px;
+        }
+        .opening-hour-title {
+            color: #ffd28d;
+        }
+        .opening-hour-date {
+            position: relative;
+            max-width: 365px;
+            p {
+                font-size: 20px;
+                color: $white;
+            }
+            .opening-hour-hr {
+                width: 98%;
+                height: 0.5px;
+                opacity: 0.2;
+                background: $yellow;
+                margin: 10px 0px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 993px) and (max-width: 1450px) {
+    .opening-hour {
+        gap: 100px;
+        .opening-hour-text-section {
+            padding: 0px;
+        }
+    }
+}
+
+@media only screen and (min-width:768px) and (max-width: 992px) {
+    .opening-hour {
+        gap: 30px;
+        &.type-2 {
+            gap: 30px;
+        }
+        .opening-hour-img-section {
+            flex-shrink: 1;
+            min-width: 40%;
+            height: 575px;
+            &.style-2 {
+                min-width: 40%;
+                height: 575px;
+            }
+        }
+        .opening-hour-text-section {
+            padding-right: 13.50px;
+        }
+    }
+}
+
+@media only screen and (max-width:767px) {
+    .opening-hour {
+        gap: 30px;
+        flex-wrap: wrap;
+        padding: 0px 13.50px;
+        &.type-2 {
+            gap: 30px;
+            padding: 0px;
+        }
+        .opening-hour-img-section {
+            flex-shrink: 1;
+            height: 250px;
+            min-width: 100%;
+            &.style-2 {
+                height: 250px;
+                min-width: 100%;
+            }
+        }
+        .opening-hour-text-section {
+            padding: 0px 0px 0px 0px;
+            flex-shrink: 1;
+            .opening-hour-title {
+                font-size: 32px;
+            }
+            .opening-hour-date {
+                position: relative;
+                p {
+                    font-size: 16px;
+                }
+                .opening-hour-hr {
+                    width: 84%;
+                }
+            }
+        }
+    }
+}

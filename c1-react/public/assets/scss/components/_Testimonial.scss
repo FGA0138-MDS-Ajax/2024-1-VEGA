@@ -1,0 +1,179 @@
+
+ .swiper-slide-active {
+    .testimonial-section {
+        .testimonial-info-section {
+            .testimonial-info-img {
+                top: 0px;
+                opacity: 1;
+                transition-delay: 0.3s;
+            }
+            .testimonial-info-title {
+                top: 0px;
+                opacity: 1;
+                transition-delay: 0.5s;
+            }
+            .short-title {
+                top: 0px;
+                opacity: 1;
+                transition-delay: 0.7s;
+            }
+        }
+    }
+}
+ 
+.testimonial-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    .testimonial-icon-1 {
+        margin-bottom: 24px;
+    }
+    .testimonial-info-section {
+        width: 56%;
+        text-align: center;
+        font-style: italic;
+        .testimonial-info-img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            position: relative;
+            top: 30px;
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.7, -0.56, 0.27, 1.6);
+        }
+        .testimonial-info-title {
+            font-size: 22px;
+            position: relative;
+            top: 20px;
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.7, -0.56, 0.27, 1.6);
+        }
+        .short-title {
+            color: $white;
+            position: relative;
+            top: 10px;
+            margin-top: 10px;
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.7, -0.56, 0.27, 1.6);
+        }
+        .testimonial-info-subtitle {
+            margin-top: 30px;
+            font-size: 22px;
+            line-height: normal;
+            font-style: italic;
+            color: $white;
+            font-weight: 400;
+        }
+    }
+}
+
+.ak-swiper-controll-3 {
+    margin-top: 60px;
+    .ak-swiper-navigation-wrap {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        margin-left: 10px;
+        .ak-swiper-button-prev-3,
+        .ak-swiper-button-next-3 {
+            transition: all 0.8s;
+            border-radius: 50%;
+        }
+    }
+}
+
+
+.btn-style-2.button-prev-next-2 {
+    appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: auto;
+    width: max-content;
+    cursor: pointer;
+    text-decoration: none;
+    transition: .2s;
+    overflow: hidden;
+    &>svg {
+        flex-shrink: 0;
+        transition: .2s;
+        overflow: hidden;
+    }
+    &>svg {
+        width: 20px;
+        height: 13px;
+        overflow: hidden;
+    }
+    &.btn-size {
+        width: 56px;
+        height: 56px;
+        padding: 0;
+        overflow: hidden;
+        transition: .2s;
+        &.rotate-svg {
+            transform: rotate(180deg);
+        }
+    }
+    &.btn-style-round.btn-size:hover {
+        background-color: #BA9774;
+    }
+    &.btn-style-round {
+        color: #fff;
+        background-color: transparent;
+        border: 1px solid #BA9774;
+        border-radius: 50%;
+    }
+    &.btn-size svg:first-child {
+        transform: translateX(-167%);
+        transition: .2s;
+    }
+    &.btn-size:hover svg:first-child {
+        transform: translateX(51%);
+    }
+    &.btn-size svg:last-child {
+        transform: translateX(-68%);
+        transition: .2s;
+    }
+    &.btn-size:hover>svg:last-child {
+        transform: translateX(178%);
+        background-color: #BA9774;
+    }
+}
+@media screen and (max-width: 991px) {
+    .testimonial-section {
+        .testimonial-info-section {
+            width: 100%;
+        }
+        .testimonial-icon-1 {
+            display: none;
+        }
+    }
+    .ak-swiper-controll-3 {
+        margin-top: 30px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .testimonial-section {
+        .testimonial-info-section {
+            .testimonial-info-subtitle {
+                font-size: 16px;
+                margin-top: 10px;
+            }
+        }
+    }
+
+    .ak-swiper-controll-3 {
+        margin-top: 30px;
+        .ak-swiper-navigation-wrap {
+            margin-right: 0px;
+        }
+    }
+}

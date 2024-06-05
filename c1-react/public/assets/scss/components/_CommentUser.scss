@@ -1,0 +1,49 @@
+.comment-list {
+    list-style: none;
+    margin: 0px;
+    margin-right: 50px;
+    padding: 0px;
+    .comment {
+        padding: 30px 0px 0px 0px;
+        p {
+            padding: 5px 0px;
+        }
+        .url {
+            color: $white;
+            &:hover {
+                color: $yellow;
+            }
+        }
+        .reply {
+            color: $yellow;
+        }
+        .reply>:hover {
+            color: $white;
+        }
+        .comment-author {
+            .avatar {
+                border-radius: 50%;
+            }
+        }
+        .children {
+            margin-left: 30px;
+            list-style: none;
+            .comment-author {
+                .avatar {
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .comment-list {
+        margin-right: 0px;
+        .comment {
+            .children {
+                margin-left: 0px;
+            }
+        }
+    }
+}

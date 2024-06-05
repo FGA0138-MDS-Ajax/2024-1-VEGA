@@ -1,0 +1,186 @@
+.ak-booking-system {
+  overflow: hidden;
+  position: relative;
+  .ak-booking-system-bg-img {
+    position: absolute;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.booking-system-form {
+  &.style-2 {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    align-items: flex-start;
+    height: 100%;
+    .select {
+      width: 100%;
+      margin: 0;
+      .ak-form-select {
+        padding: 9px;
+        height: 58px;
+      }
+      .select-icon {
+        top: 25%;
+      }
+    }
+    .ak-form-time-date {
+      width: 100%;
+      .ak-time {
+        .time-input {
+          height: 60px;
+        }
+        .time-icon {
+          top: 14px;
+        }
+      }
+      .ak-date {
+        .date-input {
+          height: 60px;
+        }
+        .date-icon {
+          top: 14px;
+        }
+      }
+    }
+    .ak-btn.style-5 {
+      padding: 15px 20px;
+    }
+  }
+  .select {
+    border: 1px solid $border;
+    margin-bottom: 25px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    .select-icon {
+      position: absolute;
+      width: 30px;
+      right: 2px;
+      top: 20%;
+    }
+  }
+  .ak-form-select {
+    appearance: none;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    color: $white;
+    background-color: transparent;
+    option {
+      color: $black;
+    }
+  }
+  .ak-form-time-date {
+    display: flex;
+    justify-content: space-between;
+    .ak-time {
+      flex-basis: 48%;
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      .time-input {
+        border: 1px solid $border;
+        color: $white;
+        width: 100%;
+        position: absolute;
+        z-index: 4;
+        background-color: transparent;
+        padding: 9px;
+      }
+      .time-icon {
+        position: absolute;
+        width: 30px;
+        height: 100%;
+        right: 7px;
+        top: 8px;
+        z-index: 3;
+      }
+    }
+    input[type="time"]::-webkit-calendar-picker-indicator {
+      background-color: $yellow;
+      cursor: pointer;
+      opacity: 0;
+    }
+    .ak-date {
+      flex-basis: 48%;
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      .date-input {
+        border: 1px solid $border;
+        color: $white;
+        width: 100%;
+        z-index: 4;
+        background-color: transparent;
+        padding: 9px;
+      }
+      .date-icon {
+        position: absolute;
+        width: 30px;
+        height: 100%;
+        right: 7px;
+        top: 8px;
+        z-index: 3;
+      }
+    }
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      background-color: $yellow;
+      cursor: pointer;
+      opacity: 0;
+    }
+  }
+}
+
+.ak-booking-system-map-from {
+  width: 85vw;
+}
+
+.booking-system-map {
+  display: flex;
+  gap: 10%;
+  align-items: center;
+  .booking-system-map-frist {
+    flex-basis: 50%;
+  }
+  .booking-system-map-second {
+    flex-basis: 40%;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .ak-booking-system-map-from {
+    width: 100vw;
+    padding-right: 13.5px;
+  }
+  .booking-system-map {
+    flex-wrap: wrap;
+    gap: 20px;
+    .booking-system-map-frist {
+      flex-basis: 94%;
+      margin-bottom: 30px;
+    }
+    .booking-system-map-second {
+      flex-basis: 94%;
+    }
+  }
+  .ak-google-map {
+    height: 400px;
+  }
+  .booking-system-form {
+    &.style-2 {
+      flex-wrap: wrap;
+      .ak-btn.style-5 {
+        margin-top: 70px;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
