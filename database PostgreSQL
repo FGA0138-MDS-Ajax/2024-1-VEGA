@@ -1,0 +1,59 @@
+-- Cria a tabela Funcionario
+CREATE TABLE Funcionario (
+  nome VARCHAR(30) NOT NULL,
+  endereco VARCHAR(30) NOT NULL,
+  cpf INT NOT NULL,
+  dataDeNascimento DATE,
+  especializacao VARCHAR(10) NOT NULL,
+  quantidadeDeMesas INT
+);
+
+-- Cria a tabela Mesas
+CREATE TABLE Mesas (
+  mesaId SERIAL PRIMARY KEY,
+  numeroMesa INT NOT NULL,
+	clienteId Int NOT Null,
+  disponivel BOOLEAN NOT NULL DEFAULT TRUE,
+	dataDaReserva DATE NOT Null, --DEFAULT CURRENT_TIMESTAMP,
+  capacidade INT NOT NULL
+);
+
+-- Cria a tabela Clientes
+CREATE TABLE Clientes (
+  clienteId SERIAL PRIMARY KEY,
+  nome VARCHAR(255) NOT NULL,
+  telefone VARCHAR(20) NOT NULL,
+	endereco VARCHAR(30) NOT NULL
+);
+
+-- Cria a tabela Pedidos
+CREATE TYPE statusPedido AS ENUM ('pendente', 'em preparo', 'pronto', 'finalizado');
+CREATE TABLE Pedidos (
+  pedidoId SERIAL PRIMARY KEY,
+	produtoId INT NOT NULL,
+  quantidade INT NOT NULL,
+  valorUnitario DECIMAL(10,2) NOT NULL,
+  mesaId INT NOT NULL,
+  clienteId INT NOT NULL,
+  data_horaPedido TIMESTAMP NOT NULL, --DEFAULT CURRENT_TIMESTAMP,
+  statusPedido statusPedido NOT NULL DEFAULT 'pendente',
+  observacao VARCHAR(255)
+); 
+
+-- Cria a tabela Produtos (Cardapio)
+CREATE TABLE Produtos (
+  produtoId SERIAL PRIMARY KEY,
+  nome VARCHAR(255) NOT NULL,
+  descricao VARCHAR(255),
+  categoria VARCHAR(100),
+  preco DECIMAL(10,2) NOT NULL
+);
+
+-- Cria a tabela estoque
+CREATE TABLE estoque (
+	itemID SERIAL PRIMARY KEY,
+	nomeDoItem VARCHAR(30) NOT Null,
+	quantidadeEmEstoque INT NOT Null,
+	valorDoItem DECIMAL(10,2) NOT Null,
+	dataDeCadastro DATE NOT Null --DEFAULT CURRENT_TIMESTAMP
+);
