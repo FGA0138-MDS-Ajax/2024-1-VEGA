@@ -7,6 +7,167 @@ password = "xpedro03"
 host = "localhost"
 port = "5432"
 
+
+# Função para somar e imprimir o valor total dos pedidos finalizados
+def calcular_valor_total_finalizados():
+    try:
+        # Estabelecer a conexão
+        conn = psycopg2.connect(dbname=dbname, user=user, password=password, host=host, port=port)
+        
+        # Criar um cursor
+        cur = conn.cursor()
+
+        # Consultar e calcular o valor total dos pedidos finalizados
+        cur.execute("""
+            SELECT SUM(quantidade * valorUnitario) AS valor_total
+            FROM finalizado
+        """)
+        
+        # Recuperar o resultado da consulta
+        resultado = cur.fetchone()
+        if resultado:
+            valor_total = resultado[0]
+            print(f"Valor total dos pedidos finalizados: R$ {valor_total:.2f}")
+        else:
+            print("Nenhum pedido finalizado encontrado.")
+
+    except psycopg2.Error as e:
+        print(f"Erro ao calcular valor total dos pedidos finalizados: {e}")
+
+    finally:
+        # Fechar o cursor e a conexão
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
+
+# Função para atualizar o status de um pedido e mover para a tabela finalizado se for 'finalizado'
+def atualizar_status_finalizado(pedido_id, novo_status):
+    try:
+        # Estabelecer a conexão
+        conn = psycopg2.connect(dbname=dbname, user=user, password=password, host=host, port=port)
+        
+        # Criar um cursor
+        cur = conn.cursor()
+
+        # Verificar se o pedido existe antes de atualizar
+        cur.execute("SELECT * FROM Pedidos WHERE pedidoId = %s", (pedido_id,))
+        pedido = cur.fetchone()
+        if not pedido:
+            print(f"Pedido com ID {pedido_id} não encontrado.")
+            return False
+
+        # Atualizar o status do pedido na tabela Pedidos
+        cur.execute("""
+            UPDATE Pedidos
+            SET statusPedido = %s
+            WHERE pedidoId = %s
+            RETURNING *
+            """, (novo_status, pedido_id))
+        
+        # Verificar se o status atualizado é 'finalizado'
+        if novo_status.lower() == 'finalizado'.lower():
+            pedido_atualizado = cur.fetchone()
+            
+            # Inserir o pedido finalizado na tabela finalizado
+            cur.execute("""
+                INSERT INTO finalizado (pedidoId, produtoId, quantidade, valorUnitario, mesaId, clienteId, data_horaPedido, statusPedido, observacao)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+                """, (pedido_atualizado[0], pedido_atualizado[1], pedido_atualizado[2], pedido_atualizado[3], pedido_atualizado[4],
+                      pedido_atualizado[5], pedido_atualizado[6], pedido_atualizado[7], pedido_atualizado[8]))
+            
+            # Remover o pedido da tabela Pedidos
+            cur.execute("DELETE FROM Pedidos WHERE pedidoId = %s", (pedido_id,))
+        
+        # Confirmar a transação
+        conn.commit()
+
+        print(f"Status do pedido ID {pedido_id} atualizado para '{novo_status}'.")
+        return True
+
+    except psycopg2.Error as e:
+        print(f"Erro ao atualizar status do pedido: {e}")
+        return False
+
+    finally:
+        # Fechar o cursor e a conexão
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
+
+# Função para atualizar o status de um pedido na tabela Pedidos
+def atualizar_status_pedido(pedido_id, novo_status):
+    try:
+        # Estabelecer a conexão
+        conn = psycopg2.connect(dbname=dbname, user=user, password=password, host=host, port=port)
+        
+        # Criar um cursor
+        cur = conn.cursor()
+
+        # Verificar se o pedido existe antes de atualizar
+        cur.execute("SELECT * FROM Pedidos WHERE pedidoId = %s", (pedido_id,))
+        pedido = cur.fetchone()
+        if not pedido:
+            print(f"Pedido com ID {pedido_id} não encontrado.")
+            return False
+
+        # Atualizar o status do pedido na tabela Pedidos
+        cur.execute("""
+            UPDATE Pedidos
+            SET statusPedido = %s
+            WHERE pedidoId = %s
+            """, (novo_status, pedido_id))
+        
+        # Confirmar a transação
+        conn.commit()
+
+        print(f"Status do pedido ID {pedido_id} atualizado para '{novo_status}'.")
+        return True
+
+    except psycopg2.Error as e:
+        print(f"Erro ao atualizar status do pedido: {e}")
+        return False
+
+    finally:
+        # Fechar o cursor e a conexão
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
+
+# Função para adicionar um novo produto à tabela Produtos
+def adicionar_produto(nome, descricao, categoria, preco):
+    try:
+        # Estabelecer a conexão
+        conn = psycopg2.connect(dbname=dbname, user=user, password=password, host=host, port=port)
+        
+        # Criar um cursor
+        cur = conn.cursor()
+
+        # Inserir o novo produto na tabela Produtos
+        cur.execute("""
+            INSERT INTO Produtos (nome, descricao, categoria, preco)
+            VALUES (%s, %s, %s, %s)
+            """, (nome, descricao, categoria, preco))
+        
+        # Confirmar a transação
+        conn.commit()
+
+        print(f"Novo produto '{nome}' adicionado com sucesso.")
+        return True
+
+    except psycopg2.Error as e:
+        print(f"Erro ao adicionar novo produto: {e}")
+        return False
+
+    finally:
+        # Fechar o cursor e a conexão
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
+
 # Função para adicionar um pedido ao carrinho de compras
 def adicionar_pedido(produto_id, quantidade):
     try:
@@ -90,7 +251,6 @@ def listar_pedidos_e_confirmar():
             print("Carrinho limpo após a confirmação do pedido.")
         else:
             print("Pedido não confirmado.")
-            
 
     except psycopg2.Error as e:
         print(f"Erro ao listar ou confirmar pedidos: {e}")
@@ -105,7 +265,18 @@ def listar_pedidos_e_confirmar():
 # Exemplo de uso das funções adicionar_pedido e listar_pedidos_e_confirmar
 if __name__ == "__main__":
     # Adicionar um pedido de exemplo ao carrinho
-    adicionar_pedido(1, 2)  # Exemplo: adicionar 2 unidades do produto com ID 1 ao carrinho
+    #adicionar_pedido(1, 2)  # Exemplo: adicionar 2 unidades do produto com ID 1 ao carrinho
 
     # Listar os pedidos no carrinho e perguntar se pode-se realizar o pedido
-    listar_pedidos_e_confirmar()
+    #listar_pedidos_e_confirmar()
+
+    # Exemplo de chamada da função para adicionar um novo produto
+    #adicionar_produto("Coca-Cola", "Refrigerante de cola", "Bebida", 5.00)
+
+    # Exemplo de chamada da função para atualizar o status de um pedido
+    #atualizar_status_pedido(1, 'finalizado')  # Exemplo: atualizar o status do pedido com ID 1 para 'em preparo'
+
+    # Exemplo de chamada da função para atualizar o status de um pedido para 'finalizado'
+    #atualizar_status_finalizado(4, 'finalizado')  # Exemplo: atualizar o status do pedido com ID 1 para 'finalizado'
+    #calcular_valor_total_finalizados()
+
