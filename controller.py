@@ -90,6 +90,7 @@ def listar_pedidos_e_confirmar():
             print("Carrinho limpo após a confirmação do pedido.")
         else:
             print("Pedido não confirmado.")
+            
 
     except psycopg2.Error as e:
         print(f"Erro ao listar ou confirmar pedidos: {e}")
