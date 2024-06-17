@@ -1,4 +1,9 @@
+from fastapi import FastAPI
+from pydantic import BaseModel
 import psycopg2
+
+# Criação da instância do FastAPI
+app = FastAPI()
 
 # Parâmetros de conexão com o banco de dados
 dbname = "mesaFacil"
@@ -7,6 +12,11 @@ password = "xpedro03"
 host = "localhost"
 port = "5432"
 
+class Item(BaseModel):
+    numero_mesa: int
+    cliente_id: int
+    data_da_reserva: str
+    capacidade: int
 
 # Função para somar e imprimir o valor total dos pedidos finalizados
 def calcular_valor_total_finalizados():
