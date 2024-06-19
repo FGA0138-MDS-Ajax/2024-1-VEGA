@@ -434,18 +434,26 @@
 </li>
 
 <li class="md-nav__item">
-  <a href="#consideracoes-de-seguranc" class="md-nav__link">
+  <a href="#Visão-lógica" class="md-nav__link">
     <span class="md-ellipsis">
-      Considerações de Segurança
+      Visão lógica
     </span>
   </a>
   
 </li>
 
 <li class="md-nav__item">
-  <a href="#conclusa" class="md-nav__link">
+  <a href="#Visão-de-Implantação" class="md-nav__link">
     <span class="md-ellipsis">
-      Conclusão
+      Visão de Implantação
+    </span>
+  </a>
+  
+</li>
+<li class="md-nav__item">
+  <a href="#Restrições-adicionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restrições adicionais
     </span>
   </a>
   
@@ -1082,18 +1090,26 @@
   
 </li>
 <li class="md-nav__item">
-  <a href="#consideracoes-de-seguranc" class="md-nav__link">
+  <a href="#Visão-lógica" class="md-nav__link">
     <span class="md-ellipsis">
-      Considerações de Segurança
+      Visão lógica
     </span>
   </a>
   
 </li>
 
 <li class="md-nav__item">
-  <a href="#conclusa" class="md-nav__link">
+  <a href="#Visão-de-Implantação" class="md-nav__link">
     <span class="md-ellipsis">
-      Conclusão
+      Visão de Implantação
+    </span>
+  </a>
+  
+</li>
+<li class="md-nav__item">
+  <a href="#Restrições-adicionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restrições adicionais
     </span>
   </a>
   
@@ -1143,6 +1159,8 @@
 
 <h2 id="Detalhamento">Detalhamento</h2>
 <p>Neste esquema, o usuário faz uma requisição de um dado ou de uma função. Essa requisição vai para o controller, que executa a função e irá até o model, responsável pelo banco de dados, coletar as informações requisitadas. Uma vez coletados os dados, eles são processados pelo controller e enviados para a view para serem apresentados ao usuário. Ou seja:</p>
+<p><img alt="Sobre" src="../assets/stylesheets/Captura de tela 2024-06-19 122849.png" /></p>
+
 <ol>
 <li>Usuário -> View: Usuário faz uma requisição.</li>
 <li>View -> Controller: View envia a requisição para o Controller.</li>
@@ -1161,19 +1179,97 @@
 <li>Manutenibilidade, o software deve ter fácil manutenção</li>
 </ul>
 <h2 id="Visão-de-Casos-de-uso">Visão de Casos de uso</h2>
+<p><img alt="Sobre" src="../assets/stylesheets/Visão de Casos de uso.png" /></p>
 <p>Nosso produto visa facilitar e ajudar a gerenciar esse fluxo de atendimento para o restaurante, e assim melhorando o atendimento do cliente do restaurante, tendo mais agilidade e também mais comodidade para o restaurante poder gerenciar.</p>
 <p>Na primeira etapa o cliente faz o pedido para o garçom o garçom anota e comanda o pedido e assim o sistema vai identificar de onde é cada pedido e enviar para os setores corretos, após a confecção dos pedidos e o cumim leva o pedido para o garçom e assim o garçom serve a mesa com os pedido feitos pelos clientes.</p>
-<h2 id="consideracoes-de-seguranc">Visão de Casos de uso</h2>
-<p>A segurança é uma preocupação fundamental na arquitetura do projeto. As seguintes medidas são implementadas para garantir a segurança dos dados e dos usuários:</p>
+<h2 id="Visão-lógica">Visão lógica</h2>
+<p>O sistema é subdividido nos seguintes módulos:</p>
 <ul>
-<li>Autenticação de usuários por meio do Firebase Authentication para garantir que apenas usuários autorizados tenham acesso à plataforma.</li>
-<li>Autorização baseada em funções para controlar as permissões dos usuários e restringir o acesso a recursos específicos com base no papel do usuário.</li>
-<li>Implementação de práticas recomendadas de segurança, como proteção contra ataques de injeção de SQL e XSS (Cross-Site Scripting), para evitar vulnerabilidades de segurança.</li>
+<li>Módulo de Gerenciamento de Funcionários</li>
+<li>Módulo de Gerenciamento de Mesas</li>
+<li>Módulo de Pedidos</li>
+<li>Módulo de Estoque de Cozinha</li>
+<li>Módulo de Banco de Dados</li>
 </ul>
-<h2 id="conclusa">Conclusão</h2>
-<p>A arquitetura do projeto é projetada para oferecer uma plataforma robusta, escalável e segura para os estudantes da UnB. Com componentes bem definidos e uma abordagem centrada no usuário, estamos confiantes de que nossa plataforma atenderá às necessidades dos usuários e proporcionará uma experiência excepcional.</p>
+<p>Razão Lógica de Cada Módulo:</p>
+<ol>
+  <li>Módulo de Gerenciamento de Funcionários</li>
+  <ul> 
+    <li>Propósito: Gerenciar informações e funções dos funcionários (gerentes, garçons, cozinheiros).</li>
+    <li>Funções: Cadastro de funcionários, atualização de informações, controle de acesso</li>
+  </ul>
+  <li>Módulo de Gerenciamento de Mesas</li>
+  <ul> 
+    <li>Propósito: Gerenciar a alocação e estado das mesas do restaurante</li>
+    <li>Funções: Reserva de mesas, atualização de estado (disponível, ocupada, reservada).</li>
+  </ul>
+  <li>Módulo de Pedidos</li>
+  <ul>
+    <li>Propósito: Gerenciar os pedidos realizados pelos clientes</li>
+    <li>Funções: Criação de pedidos, atualização de status, associação com mesas</li>
+  </ul>
+  <li>Módulo de Estoque de Cozinha</li>
+  <ul>
+    <li>Propósito: Gerenciar o estoque de ingredientes e materiais necessários para a cozinha</li>
+    <li>Funções: Cadastro de itens, controle de quantidades, atualização de estoqu</li>
+  </ul>
+  <li>Módulo de Banco de Dados</li>
+  <ul>
+    <li>Propósito: Persistência e recuperação de dados para todos os outros módulos.</li>
+    <li>Funções: Operações de CRUD (Create, Read, Update, Delete) para funcionários, mesas, pedidos, e estoque.</li>
+  </ul>
+</ol>
+<p>Comunicação entre os Módulos - Interfaces:</p>
+<ul>
+  <li> API de Funcionários: Interface para operações de gerenciamento de funcionários.</li>
+  <li> API de Mesas: Interface para operações de gerenciamento de mesas.  </li>
+  <li> API de Pedidos: Interface para operações de gerenciamento de pedidos.  </li>
+  <li> API de Estoque: Interface para operações de gerenciamento de estoque.</li>
+  <li> API de Banco de Dados: Interface para persistência e recuperação de dados</li>
+</ul>
+<p>Diagrama de Estados da Aplicação</p>
+<li>O diagrama de estados mostra os diferentes estados pelos quais um pedido pode passar durante seu ciclo de vida no sistema. Este diagrama é essencial para entender as transições de estado e como os pedidos são processados.</li>
+<p>Exemplificando:</p>
+<ul>
+  <li> Novo Pedido: Estado inicial quando um pedido é criado.  </li>
+  <li> Em Preparação: O pedido está sendo preparado pelo cozinheiro</li>
+  <li> Pronto para Servir: O pedido está pronto e aguardando ser servido.  </li>
+  <li> Aguardando Servir: O pedido está pronto e aguardando o garçom para ser levado à mesa.</li>
+  <li> Servido: O pedido foi servido ao cliente.  </li>
+  <li> Concluído: O pedido foi consumido e o processo está encerrado.</li>
+</ul>
+<p><img alt="Sobre" src="../assets/stylesheets/Diagrama de Atividades da Aplicação.png" /></p>
+<p>diagrama de atividades da aplicação</p>
+<p></p>
 
+<p>Diagrama de Classes</p>
+<p><img alt="Sobre" src="../assets/stylesheets/Diagrama de Classes.png" /></p>
+<li>Nesse diagrama de classes, é possível ver três classes: cozinheiro, gerente e garçom. Essas classes se relacionam através da herança com a classe abstrata pai chamada Funcionário. Essa classe abstrata se relaciona com a classe BancoDeDados, que, por sua vez, salva todas as informações dos funcionários e da classe Estoque. Além disso, a classe Garçom se relaciona com a classe Mesa, que é relacionada a um cliente e guarda uma lista de pedidos feitos. Por fim, essa classe se relaciona com a classe Pedidos</li>
+<p><img alt="Sobre" src="../assets/stylesheets/classe Pedidos.png" /></p>
 
+<h2 id="Visão-de-Implantação">Visão de Implantação</h2>
+<p>Para a implementação não será necessário um hardware muito potente já que o sistema irá funcionar basicamente no servidor, que será feito a requisição e voltará os dados necessários para que o usuário consiga utilizar a interface para o usuários, sendo ele o garçom, gerente ou o local que será feito o preparo dos pratos.</p>
+<p>o sistema irá precisar basicamente de um terminal onde se possa ser feito a requisição e logo o poderá ser acessado com o mouse e teclado e ver tudo através do monitor, como banco de será utilizado o MySQL á que mais simples para fazer a integração de maneira mais viável, será utilizado também Python já possui diversas bibliotecas que podem ser implementadas e assim ajudando melhor no funcionamento do sistema no geral, isso no back-end, á para o front end será utilizado HTML, Flutter, CSS e JavaScript já que são linguagem já conhecidas pelos integrantes do grupo e também possui bibliotecas com diversas funcionalidades.</p>
+
+<h2 id="Restrições-adicionais">Restrições adicionais</h2>
+<p>Para garantir que o sistema funcione de maneira eficiente e atenda às necessidades do negócio e dos usuários, algumas restrições adicionais são necessárias. Estas restrições estão relacionadas a aspectos negociais e de qualidade de software.São elas:</p>
+<ul>
+  <li>Autenticação de Usuário:</li>
+    <ul>
+        <li>Descrição: Todos os usuários devem se autenticar utilizando um login e uma senha antes de acessar o sistema.</li>
+        <li>Justificativa: A autenticação garante que somente usuários autorizados, como gerentes, garçons e cozinheiros, possam acessar e modificar informações relevantes. Isso evita acessos não autorizados e protege os dados.</li>
+    </ul>
+  <li>Suporte para Múltiplos Usuários Concomitantemente:</li>
+      <ul>
+        <li>Descrição: O sistema deve suportar até múltiplos usuários logados ao mesmo tempo</li>
+        <li>Justificativa: Restaurantes podem ter vários funcionários trabalhando simultaneamente e vários clientes acessando o cardápio e realizando o pedido, e o sistema deve ser capaz de suportar essa carga para garantir a eficiência das operações</li>
+      </ul>
+  <li>Usabilidade</li>
+      <ul>
+        <li>Descrição: O software deve ser intuitivo e fácil de usar para todos os funcionários e clientes, independentemente de seu nível de habilidade técnica.</li>
+        <li>Justificativa: Uma interface amigável e fácil de usar minimiza erros de operação e reduz o tempo de treinamento necessário para os novos funcionários. </li>
+      </ul>
+</ul>
 
 
 
