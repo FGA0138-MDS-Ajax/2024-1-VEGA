@@ -8,16 +8,6 @@ CREATE TABLE Funcionario (
   quantidadeDeMesas INT
 );
 
--- Cria a tabela Mesas
-CREATE TABLE Mesas (
-  mesaId SERIAL PRIMARY KEY,
-  numeroMesa INT NOT NULL,
-	clienteId Int NOT Null,
-  disponivel BOOLEAN NOT NULL DEFAULT TRUE,
-	dataDaReserva DATE NOT Null, --DEFAULT CURRENT_TIMESTAMP,
-  capacidade INT NOT NULL
-);
-
 -- Cria a tabela Clientes
 CREATE TABLE Clientes (
   clienteId SERIAL PRIMARY KEY,
@@ -57,3 +47,45 @@ CREATE TABLE estoque (
 	valorDoItem DECIMAL(10,2) NOT Null,
 	dataDeCadastro DATE NOT Null --DEFAULT CURRENT_TIMESTAMP
 );
+
+-- Cria a tabela from
+CREATE TABLE form (
+	nome VARCHAR(50),
+	email VARCHAR(100),
+	subject VARCHAR(100),
+	mensagem VARCHAR(500)
+);
+
+-- Cria a tabela Mesas
+CREATE TABLE Mesas (
+  mesaId SERIAL PRIMARY KEY,
+  numeroMesa INT NOT NULL,
+	clienteId Int NOT Null,
+  disponivel BOOLEAN NOT NULL DEFAULT TRUE,
+	dataDaReserva DATE NOT Null, --DEFAULT CURRENT_TIMESTAMP,
+  capacidade INT NOT NULL
+);
+
+-- Cria a tabela Mesas
+CREATE TABLE Mesas (
+  mesaId SERIAL PRIMARY KEY,
+  email VARCHAR(100),--
+  disponivel BOOLEAN DEFAULT TRUE,
+  dataDaReserva VARCHAR(100),--
+  horaDaReserva VARCHAR(100) ,--
+  capacidade INT NOT NULL,
+  persons VARCHAR(100)--
+);
+
+INSERT INTO Mesas (email, disponivel, dataDaReserva, horaDaReserva, capacidade, persons)
+VALUES 
+  ('', TRUE, '', '', 4, ''),
+  ('', TRUE, '', '', 6, ''),
+  ('', TRUE, '', '', 2, ''),
+  ('', TRUE, '', '', 8, ''),
+  ('', TRUE, '', '', 4, ''),
+  ('', TRUE, '', '', 6, ''),
+  ('', TRUE, '', '', 3, ''),
+  ('', TRUE, '', '', 5, ''),
+  ('', TRUE, '', '', 4, ''),
+  ('', TRUE, '', '', 6, '');
