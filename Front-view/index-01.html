@@ -162,68 +162,67 @@
             <!-- hero bg end -->
         </div>
         <!-- home end -->
-                <!-- reservation form start -->
-              <div class="reservation-wrapper fadeIn-element">
-        <!-- container start -->
-        <div class="container">
-            <div class="extra-margin-container">
-                <div class="reservation-inner clearfix">
-                    <form action="/api/reservar_mesa" id="form-2" method="put">
-                        <div class="col-1 c-1">
-                            <div class="input-wrapper">
-                                <label>Data</label>
-                                <div class="input-inner">
-                                    <input class="requiredField-r date form-control input datepicker" id="date" name="data" placeholder="Date" type="text">
+        <!-- reservation form start -->
+        <div class="reservation-wrapper fadeIn-element">
+            <!-- container start -->
+            <div class="container">
+                <div class="extra-margin-container">
+                    <div class="reservation-inner clearfix">
+                        <form action="/api/reservar_mesa" id="form-2" method="post">
+                            <div class="col-1 c-1">
+                                <div class="input-wrapper">
+                                    <label>Data</label>
+                                    <div class="input-inner">
+                                        <input class="requiredField-r date form-control input datepicker" id="date" name="data" placeholder="Date" type="text">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-1 c-2">
-                            <div class="input-wrapper">
-                                <label>Email</label>
-                                <div class="input-inner input-inner-email">
-                                    <input class="requiredField-r email" id="email-r" name="email" placeholder="Email" type="text">
+                            <div class="col-1 c-2">
+                                <div class="input-wrapper">
+                                    <label>Email</label>
+                                    <div class="input-inner input-inner-email">
+                                        <input class="requiredField-r email" id="email-r" name="email" placeholder="Email" type="text">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-2 c-3">
-                            <div class="select-wrapper">
-                                <label>Horário</label>
-                                <div class="select-inner">
-                                    <select class="requiredField-r time select2 select" id="time" name="hora">
-                                        <option class="" value="" selected="selected">Horário</option>
-                                        <option value="10:00">10:00 a.m.</option>
-                                        <option value="11:00">11:00 a.m.</option>
-                                        <option value="12:00">12:00 p.m.</option>
-                                        <option value="13:00">1:00 p.m.</option>
-                                    </select>
+                            <div class="col-2 c-3">
+                                <div class="select-wrapper">
+                                    <label>Horário</label>
+                                    <div class="select-inner">
+                                        <select class="requiredField-r time select2 select" id="time" name="hora">
+                                            <option class="" value="" selected="selected">Horário</option>
+                                            <option value="10:00">10:00 a.m.</option>
+                                            <option value="11:00">11:00 a.m.</option>
+                                            <option value="12:00">12:00 p.m.</option>
+                                            <option value="13:00">1:00 p.m.</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-2 c-4">
-                            <div class="select-wrapper">
-                                <label>Pessoas</label>
-                                <div class="select-inner">
-                                    <select class="requiredField-r persons select2 select" id="persons" name="pessoas">
-                                        <option value="" selected="selected">Pessoas</option>
-                                        <option value="1">1 Pessoa</option>
-                                        <option value="2">2 Pessoas</option>
-                                        <option value="3">3 Pessoas</option>
-                                        <option value="4">4 Pessoas</option>
-                                    </select>
+                            <div class="col-2 c-4">
+                                <div class="select-wrapper">
+                                    <label>Pessoas</label>
+                                    <div class="select-inner">
+                                        <select class="requiredField-r persons select2 select" id="persons" name="pessoas">
+                                            <option value="" selected="selected">Pessoas</option>
+                                            <option value="1">1 Pessoa</option>
+                                            <option value="2">2 Pessoas</option>
+                                            <option value="3">3 Pessoas</option>
+                                            <option value="4">4 Pessoas</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-3 c-6">
-                            <button type="submit" class="reservation-button">Reserve já</button>
-                        </div>
-                    </form>
+                            <div class="col-3 c-6">
+                                <button type="submit" class="reservation-button">Reserve já</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
+            <!-- container end -->
         </div>
-        <!-- container end -->
-    </div>
-    <!-- reservation form end -->
-            <!-- reservation form end -->
+        <!-- reservation form end -->
         <!-- vertical lines start -->
         <div class="vertical-lines-wrapper">
             <div class="vertical-lines"></div>
@@ -2159,107 +2158,107 @@
             <!-- container end -->
         </div>
         <!-- contact end -->
-    <!-- contact modal start -->
-    <div class="contact-modal">
-        <!-- container start -->
-        <div class="container">
-            <!-- center container start -->
-            <div class="center-container-contact-modal">
-                <!-- center block start -->
-                <div class="center-block-contact-modal">
-                    <!-- row start -->
-                    <div class="row center-block-contact-modal-padding-top">
-                        <div class="col-lg-12">
-                            <!-- section subtitle start -->
-                            <div class="section-title section-title-dark">
-                                <h2 class="section-title-line section-title-line-dark">
-                                    <span>Vamos Conversar</span>                                    
+        <!-- contact modal start -->
+        <div class="contact-modal">
+            <!-- container start -->
+            <div class="container">
+                <!-- center container start -->
+                <div class="center-container-contact-modal">
+                    <!-- center block start -->
+                    <div class="center-block-contact-modal">
+                        <!-- row start -->
+                        <div class="row center-block-contact-modal-padding-top">
+                            <div class="col-lg-12">
+                                <!-- section subtitle start -->
+                                <div class="section-title section-title-dark">
+                                    <h2 class="section-title-line section-title-line-dark">
+                                        <span>Vamos Conversar</span>                                    
+                                    </h2>
+                                </div>
+                                <!-- section subtitle end -->
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                                <!-- section title start -->
+                                <h2 class="hero-heading hero-heading-dark">
+                                    Por favor <span> Preencha</span>
                                 </h2>
+                                <!-- section title end -->
+                                <!-- divider start -->
+                                <div class="divider-l"></div>
+                                <!-- divider end -->
                             </div>
-                            <!-- section subtitle end -->
-                            <!-- divider start -->
-                            <div class="divider-m"></div>
-                            <!-- divider end -->
-                            <!-- section title start -->
-                            <h2 class="hero-heading hero-heading-dark">
-                                Por favor <span> Preencha</span>
-                            </h2>
-                            <!-- section title end -->
-                            <!-- divider start -->
-                            <div class="divider-l"></div>
-                            <!-- divider end -->
                         </div>
-                    </div>
-                    <!-- row end -->
-                    <!-- row start -->
-                    <div class="row contact-modal-wrapper">
-                        <!-- col start -->
-                        <div>
-                            <!-- contact form start -->
-                            <div id="contact-form">
-                                <form action="/api/enviar_formulario" id="form" method="post" name="send">
-                                    <!-- col start -->
-                                    <div class="col-sm-6 col-md-6 col-lg-6">
-                                        <input class="requiredField name" id="name" name="nome" placeholder="Name" type="text">
-                                    </div>
-                                    <!-- col end -->
-                                    <!-- col start -->
-                                    <div class="col-sm-6 col-md-6 col-lg-6">
-                                        <input class="requiredField email" id="email" name="email" placeholder="Email" type="text">
-                                    </div>
-                                    <!-- col end -->
-                                    <!-- col start -->
-                                    <div class="make-space">
-                                        <input class="requiredField subject" id="subject" name="subject" placeholder="Subject" type="text">
-                                    </div>
-                                    <!-- col end -->
-                                    <!-- col start -->
-                                    <div class="make-space">
-                                        <textarea class="requiredField message" id="message" name="mensagem" placeholder="Message"></textarea>
-                                    </div>
-                                    <!-- col end -->
-                                    <div>
-                                        <!-- button start -->
-                                        <div class="more-wraper-center more-wraper-center-form">
-                                            <div class="more-button-bg-center more-button-bg-center-dark more-button-bg-center-dark-close more-button-circle"></div>
-                                            <div class="more-button-txt-center more-button-txt-center-close">
-                                                <button type="submit">
-                                                <span>Enviar</span>
-                                                </button>
-                                            </div>
+                        <!-- row end -->
+                        <!-- row start -->
+                        <div class="row contact-modal-wrapper">
+                            <!-- col start -->
+                            <div>
+                                <!-- contact form start -->
+                                <div id="contact-form">
+                                    <form action="/api/enviar_formulario" id="form" method="post" name="send">
+                                        <!-- col start -->
+                                        <div class="col-sm-6 col-md-6 col-lg-6">
+                                            <input class="requiredField name" id="name" name="nome" placeholder="Name" type="text">
                                         </div>
-                                        <!-- button end -->
-                                    </div>
-                                </form>
-                                <div id="feedback-message" style="margin-top: 20px; color: red;"></div>
+                                        <!-- col end -->
+                                        <!-- col start -->
+                                        <div class="col-sm-6 col-md-6 col-lg-6">
+                                            <input class="requiredField email" id="email" name="email" placeholder="Email" type="text">
+                                        </div>
+                                        <!-- col end -->
+                                        <!-- col start -->
+                                        <div class="make-space">
+                                            <input class="requiredField subject" id="subject" name="subject" placeholder="Subject" type="text">
+                                        </div>
+                                        <!-- col end -->
+                                        <!-- col start -->
+                                        <div class="make-space">
+                                            <textarea class="requiredField message" id="message" name="mensagem" placeholder="Message"></textarea>
+                                        </div>
+                                        <!-- col end -->
+                                        <div>
+                                            <!-- button start -->
+                                            <div class="more-wraper-center more-wraper-center-form">
+                                                <div class="more-button-bg-center more-button-bg-center-dark more-button-bg-center-dark-close more-button-circle"></div>
+                                                <div class="more-button-txt-center more-button-txt-center-close">
+                                                    <button type="submit">
+                                                    <span>Enviar</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <!-- button end -->
+                                        </div>
+                                    </form>
+                                    <div id="feedback-message" style="margin-top: 20px; color: red;"></div>
+                                </div>
+                                <!-- contact form end -->
                             </div>
-                            <!-- contact form end -->
+                            <!-- col end -->
                         </div>
-                        <!-- col end -->
-                    </div>
-                    <!-- row end -->
-                    <!-- divider start -->
-                    <div class="divider-l"></div>
-                    <!-- divider end -->
-                    <!-- row start -->
-                    <div class="row center-block-contact-modal-padding-bottom">
-                        <div class="col-lg-12">
-                            <!-- contact modal closer start -->
-                            <div class="contact-modal-closer">
-                                <span class="ion-close"></span>
+                        <!-- row end -->
+                        <!-- divider start -->
+                        <div class="divider-l"></div>
+                        <!-- divider end -->
+                        <!-- row start -->
+                        <div class="row center-block-contact-modal-padding-bottom">
+                            <div class="col-lg-12">
+                                <!-- contact modal closer start -->
+                                <div class="contact-modal-closer">
+                                    <span class="ion-close"></span>
+                                </div>
+                                <!-- contact modal closer end -->
                             </div>
-                            <!-- contact modal closer end -->
                         </div>
+                        <!-- row end -->
                     </div>
-                    <!-- row end -->
+                    <!-- center block end -->
                 </div>
-                <!-- center block end -->
+                <!-- center container end -->
             </div>
-            <!-- center container end -->
+            <!-- container end -->
         </div>
-        <!-- container end -->
-    </div>
-    <!-- contact modal end -->
+        <!-- contact modal end -->
         <!-- footer start -->
         <div id="footer" class="section-all bg-light">
             <!-- divider start -->

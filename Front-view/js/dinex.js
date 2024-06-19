@@ -601,7 +601,7 @@ $(function() {
             var r = $(this).serialize();
             $.post($(this).attr("action"), r, function() {
                 $("form#form-2").slideUp("fast", function() {
-                    $(this).before('<div class="success-r">Sua Reserva foi Recebida com Sucesso!</div>');
+                    $(this).before('<div class="success-r">Your reservation has been received.</div>');
                 });
             });
         }
