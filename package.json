@@ -1,0 +1,15 @@
+{
+  "name": "2024-1-vega",
+  "version": "1.0.0",
+  "description": "Repositório do grupo Vega 2024.1",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
