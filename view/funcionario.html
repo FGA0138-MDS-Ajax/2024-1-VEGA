@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <script>
+      async function login() {
+        const cpf = document.getElementById("cpf").value;
+        const senha = document.getElementById("senha").value;
+
+        try {
+          const response = await fetch("/api/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ cpf, senha }),
+          });
+
+          if (response.ok) {
+            const data = await response.json();
+            window.location.href = data.redirectUrl;
+          } else {
+            console.error("Erro ao fazer login:", response.statusText);
+          }
+        } catch (error) {
+          console.error("Erro ao fazer login:", error);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <input type="text" id="cpf" placeholder="CPF" />
+    <input type="password" id="senha" placeholder="Senha" />
+    <button onclick="login()">Login</button>
+  </body>
+</html>
