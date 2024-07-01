@@ -140,7 +140,7 @@
               <div class="extra-margin-container">
                 <div class="reservation-inner clearfix">
                   <h3>Adicionar Pedido</h3>
-                  <form id="adicionarPedidoForm">
+                  <!-- <form id="adicionarPedidoForm">
                     <label for="produtoId">ID do Produto:</label>
                     <input
                       type="text"
@@ -170,7 +170,7 @@
                       required
                     /><br />
                     <button type="submit">Adicionar Pedido</button>
-                  </form>
+                  </form> -->
                   <div id="adicionarPedidoResult"></div>
                 </div>
               </div>
@@ -293,6 +293,7 @@
               <li>
                 Pedido ID: ${pedido.pedidoId}, Produto: ${pedido.produtoId}, Quantidade: ${pedido.quantidade}, Valor Unitário: R$${pedido.valorUnitario}
                 <button onclick="apagarPedido(${pedido.pedidoId})">Apagar Pedido</button>
+                <button onclick="atualizarStatusPedido(${pedido.pedidoId})">Estatus</button>
               </li>`;
               });
               pedidosHtml += "</ul>";
@@ -332,6 +333,32 @@
           .catch((error) => {
             console.error(`Erro ao apagar pedido ${pedidoId}:`, error);
             alert("Erro ao apagar pedido.");
+          });
+      }
+
+      function atualizarStatusPedido(pedidoId, finalizado) {
+        fetch("/api/atualizar_status_pedido", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ pedidoId: pedidoId }),
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.text();
+          })
+          .then((message) => {
+            alert(message);
+            // Optionally refresh the list of pedidos
+            const pedidosList = document.getElementById("pedidosList");
+            pedidosList.innerHTML = "";
+          })
+          .catch((error) => {
+            console.error(`Erro ao atualizar ${pedidoId}:`, error);
+            alert("Erro ao apagar atualizar.");
           });
       }
     </script>
