@@ -799,105 +799,403 @@
 <table>
 <thead>
 <tr>
+<th>Épico</th>
+<th>Feature</th>
 <th>US</th>
+<th>ID</th>
+<th>Nome</th>
 <th>Descrição</th>
-<th>Funcionalidade</th>
-<th>Prioridade</th>
-<th>Status</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>#US1</td>
-<td>Como gerente, quero poder cadastrar novos funcionários no sistema para que eles possam acessar suas funções específicas.</td>
-<td>Sistema Login</td>
-<td>Alta</td>
-<td>Working on</td>
+<td>E01 - Gestão de Usuarios</td>
+<td>F01</td>
+<td>US01</td>
+<td>1</td>
+<td>Cadastro de usuários</td>
+<td>O sistema deve ser capaz de cadastrar novos clientes e vendedores, fornecendo informações como nome, e-mail, senha e tipo de usuário (cliente ou vendedor).</td>
 </tr>
 <tr>
-<td>#SU2</td>
-<td>Como funcionário, quero fazer login no sistema para acessar as ferramentas e informações necessárias para o meu trabalho.</td>
-<td>Sistema Login</td>
-<td>Alta</td>
-<td>Working on</td>
+<td></td>
+<td></td>
+<td>US02</td>
+<td>2</td>
+<td>Registro de usuários</td>
+<th>O sistema deve permitir que os clientes se registrem utilizando seu e-mail e senha para acessar as funcionalidades da plataforma.</th>
 </tr>
 <tr>
-<td>#SU3</td>
-<td>Como chef, quero poder registrar novos pratos no sistema para atualizar o cardápio do restaurante.</td>
-<td>Gerência de Pratos e Comidas</td>
-<td>Alta</td>
-<td>Working on</td>
+<td></td>
+<td></td>
+<td>US03</td>
+<td>3</td>
+<td>Gerenciamento de Acesso</td>
+<th>O sistema deve fornecer uma interface para que o administrador possa gerenciar os acessos de usuários, concedendo ou revogando privilégios conforme necessário.</th>
 </tr>
 <tr>
-<td>#US4</td>
-<td>Como garçom, quero registrar os pedidos dos clientes no sistema para que a cozinha possa prepará-los de maneira eficiente.</td>
-<td>Gerência de Pedidos e Mesas</td>
-<td>Alta</td>
-<td>Working on</td>
+<td>E02 - Gestão de Atendimento ao Cliente</td>
+<td>F02</td>
+<td>US04</td>
+<td>4</td>
+<td>Cadastro de Produtos</td>
+<th>O sistema deve permitir que os vendedores adicionem novos produtos ao estoque, fornecendo informações como nome, descrição, preço e quantidade disponível.</th>
 </tr>
 <tr>
-<td>#US5</td>
-<td>Como maître, quero gerenciar as reservas de mesas e horários para otimizar o espaço do restaurante e evitar tempos de espera.</td>
-<td>Gerência de Pedidos e Mesas</td>
-<td>Alta</td>
-<td>Waiting</td>
+<td></td>
+<td></td>
+<td>US05</td>
+<td>5</td>
+<td>Edição de Produtos</td>
+<td>O sistema deve permitir que os vendedores atualizem as informações de produtos existentes, como preço, descrição e quantidade disponível.</td>
 </tr>
 <tr>
-<td>#US6</td>
-<td>Como chef, quero consultar os pedidos já feitos para iniciar o preparo de pratos para o cliente.</td>
-<td> Gerência de Pratos e Comidas</td>
-<td>Alta</td>
-<td>Waiting</td>
+<td></td>
+<td></td>
+<td>US06</td>
+<td> 6</td>
+<td>Adição de Produtos ao carrinho</td>
+<td>O sistema deve permitir que os clientes adicionem produtos ao seu carrinho de compras, selecionando a quantidade desejada. </td>
 </tr>
 <tr>
-<td>#US7</td>
-<td>Como gerente financeiro, quero gerar relatórios de vendas para acompanhar o desempenho do restaurante e planejar estratégias de negócio.</td>
-<td>Geração de Estatísticas </td>
-<td>Alta</td>
-<td>Waiting</td>
+<td></td>
+<td>F03</td>
+<td>US07</td>
+<td>7 </td>
+<td>Remoção de Produtos do Carrinho</td>
+<td>O sistema deve permitir que os clientes removam produtos do carrinho antes de finalizar a compra. </td>
 </tr>
 <tr>
-<td>#US8</td>
-<td>Como gerente de marketing, quero gerar relatórios das comidas mais vendidas para desenvolver promoções e ajustar o estoque de acordo com a demanda.</td>
-<td>Geração de Estatísticas</td>
-<td>Alta</td>
-<td>Waiting</td>
+<td></td>
+<td></td>
+<td>US08</td>
+<td>8</td>
+<td>Finalizar Pedidos</td>
+<td>O sistema deve apresentar um resumo do pedido ao cliente ao finalizar a compra, exibindo os itens selecionados, quantidades, preços e valor total. </td>
 </tr>
 <tr>
-<td>#US9</td>
-<td>Como garçom, quero poder gerar a comanda da mesa do cliente.</td>
-<td>Gerência de Pratos, Mesas e Comidas</td>
-<td>Alta</td>
-<td>Waiting</td>
+<td></td>
+<td></td>
+<td>US09</td>
+<td>9</td>
+<td>Processamento de Pagamento</td>
+<td>O sistema deve permitir que os operadores de sistema processem os pagamentos de forma segura, utilizando diferentes métodos de pagamento (cartão de crédito, boleto, Pix). </td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td>US10</td>
+<td>10</td>
+<td>Opções de Pagamento</td>
+<td>O sistema deve oferecer aos clientes a opção de escolher entre diferentes formas de pagamento, como cartão de crédito, boleto bancário ou Pix. </td>
+</tr>
+<tr>
+<td>E03 - Gestão Financeira e Marketing</td>
+<td>F04</td>
+<td>US11</td>
+<td>11</td>
+<td>Relatorio de Vendas</td>
+<td>O sistema deve fornecer aos gerentes acesso a relatórios de vendas diárias, contendo informações como valor total das vendas, produtos mais vendidos e melhores clientes.</td>
+</tr>
+
+ <tr>
+<td></td>
+<td></td>
+<td>US12</td>
+<td>12</td>
+<td>Painel Administrativo</td>
+<td>O sistema deve disponibilizar um painel administrativo para que os administradores possam acessar todos os relatórios e ferramentas de análise disponíveis no sistema.</td>
 </tr>
 
 
 </tbody>
 </table>
-<p>ESCOPO DO MVP1: .</p>
-<h1 id="Epicos"> Epicos</h1>
-<h2 id="gestão-de-funcionarios">Gestão de Funcionários</h2>
-<ul>
-<li>#US02 - Acesso ao sistema</li>
-<li>#US01 - Cadastro de usuários</li>
-<li>#US02 - Recuperação de conta</li>
+<p>Perfis</p>
 
-</ul>
-<h2 id="Gestão-de-Atendimento-ao-Cliente">Gestão de Atendimento ao Cliente</h2>
-<ul>
-<li>#US03 - Cadastro de pratos</li>
-<li>#US03 - Edição de Pratos</li>
-<li>#US03 - Remoção de Pratos</li>
-<li>#US06 - Consulta de Pedidos</li>
-<li>#US06 - Finalizar Pedidos</li>
-<li>#US05 - Reservar Mesas <li>
-<li>#US09 - Finalição de Comanda<li>
-</ul>
-<h2 id="Gestão-Financeira-e-Marketing">Gestão Financeira e Marketing</h2>
-<ul>
-<li>#US07 - Relatório de Vendas</li>
-<li>#US08 - Relatorio de Pratos</li>
-</ul>
+<h1 id=Perfis>Perfis</h1>
+<ul><li>Tabela : Perfis de acesso</li></ul>
+
+<table>
+
+  <thead>
+  <tr>
+  <th>US</th>
+  <th>Descrição</th>
+  <th>Funcionalidades Associadas</th>
+  <th>Codigo</th>
+  <th>Feature</th>
+  </tr>
+  </thead>
+
+
+  <tbody>
+  <tr>
+  <td>US01</td>
+  <td>Como gerente do sistema, Eu quero poder cadastrar novos clientes e vendedores, Para que eles possam acessar suas funcionalidades específicas na plataforma.</td>
+  <td>F01</td>
+  <td>F01</td>
+  <td>Sistema de Loguin</td>
+  </tr>
+
+  <tr>
+  <td>US02</td>
+  <td>Como cliente, Eu quero me registrar com meu email e senha, Para que eu possa realizar compras no site.</td>
+  <td>F01</td>
+  <td>F02</td>
+  <td>Gerencia de Produtos</td>
+  </tr>
+
+  <tr>
+  <td>US03</td>
+  <td>Como administrador do sistema, Eu quero gerenciar os acessos de usuários, Para que possa garantir que cada usuário tenha os privilégios corretos.</td>
+  <td>F01</td>
+  <td>F03</td>
+  <td>Gerencia de Pedidos</td>
+  </tr>
+
+  <tr>
+  <td>US04</td>
+  <td>Como vendedor, Eu quero adicionar novos produtos ao estoque, Para que clientes possam visualizar e comprar meus produtos.</td>
+  <td>F02</td>
+  <td>F04</td>
+  <td>Geração de Estatisticas</td>
+  </tr>
+
+  <tr>
+  <td>US05</td>
+  <td>Como vendedor, Eu quero atualizar informações de produtos existentes, Para que os detalhes e quantidades estejam sempre corretos.</td>
+  <td>F02</td>
+  <td></td>
+  <td></td>
+  </tr>
+
+  <tr>
+  <td>US06</td>
+  <td>Como cliente, Eu quero adicionar produtos ao meu carrinho de compras, Para que eu possa gerenciar minha compra antes de finalizar o pedido.</td>
+  <td>F03</td>
+  <td></td>
+  <td></td>
+  </tr>
+
+  <tr>
+  <td>US07</td>
+  <td>Como cliente, Eu quero remover produtos do meu carrinho, Para que eu possa ajustar meu pedido antes da compra final.</td>
+  <td>F03</td>
+  <td></td>
+  <td></td>
+  </tr>
+    
+  <tr>
+  <td>US08</td>
+  <td>Como cliente, Eu quero ver um resumo do pedido ao finalizar a compra, Para que possa conferir e confirmar os itens antes de pagar.</td>
+  <td>F03</td>
+  <td></td>
+  <td></td>
+  </tr>
+  <tr>
+  <td>US09</td>
+  <td>Como operador de sistema, Eu quero processar pagamentos de forma segura, Para que os clientes tenham suas compras efetuadas com segurança.</td>
+  <td>F03</td>
+  <td></td>
+  <td></td>
+ </tr>
+  
+ <tr>
+  <td>US10</td>
+  <td>Como cliente, Eu quero escolher entre diferentes formas de pagamento, Para que eu possa utilizar o método que for mais conveniente para mim.</td>
+  <td>F03</td>
+  <td></td>
+  <td></td>
+  </tr>
+      
+  <tr>
+  <td>US11</td>
+  <td>Como gerente, Eu quero acessar relatórios de vendas diárias, Para que possa fazer planejamento estratégico baseado em dados reais de vendas.</td>
+  <td>F04</td>
+  <td></td>
+  <td></td>
+  </tr>
+
+  <tr>
+  <td>US12</td>
+  <td>Como administrador, Eu quero ter um painel administrativo para acessar todos os relatórios e ferramentas de análise, Para que eu possa tomar </td>
+  <td>F04</td>
+  <td></td>
+  <td></td>
+  </tr>
+
+</tbody>
+</table>
+
+
+<ul><li>Tabela: Cenários funcionais</li></ul>
+<h2 id="CENARIOS">Cenarios</h2>
+
+<table>
+
+  <thead>
+  <tr>
+  <th>Codigo</th>
+  <th>Casos de Uso</th>
+  <th>Sprints</th>
+  </tr>
+  </thead>
+
+
+  <tbody>
+  <tr>
+  <td>UC01</td>
+  <td>Cadastro do funcionário</td>
+  <td>Sprints 1</td>
+  </tr>
+
+  <tr>
+  <td>UC02</td>
+  <td>Login no sistema</td>
+  <td>Sprints 2</td>
+  </tr>
+
+  <tr>
+  <td>UC03</td>
+  <td>Registro de Comidas </td>
+  <td>Sprints 3</td>
+  </tr>
+
+  <tr>
+  <td>UC04</td>
+  <td>Registro de Pedidos</td>
+  <td>Sprints 4</td>
+  </tr>
+
+  <tr>
+  <td>UC05</td>
+  <td>Gerenciamento de Mesas e Horários</td>
+  <td>Sprints 5</td>
+  </tr>
+  
+  <tr>
+  <td>UC06</td>
+  <td>Consulta de Pedidos</td>
+  <td>Sprints 6</td>
+  </tr>
+  
+  <tr>
+  <td>UC07</td>
+  <td>Gerar relatório de Vendas</td>
+  <td>Sprints 7</td>
+  </tr>
+  
+  <tr>
+  <td>UC08</td>
+  <td>Gerar relatório de comidas mais vendidas</td>
+  <td>Sprints 8</td>
+  </tr>
+
+</tbody>
+</table>
+
+<ul><li>4.4	Tabela de Backlog do produto</li></ul>
+
+<table>
+
+  <thead>
+  <tr>
+  <th>Numeração do Cenário / Requisito</th>
+  <th>Sprint</th>
+  <th>Nome do Requisito</th>
+  <th>Tipo de Requisito (Funcional / não funcional)</th>
+  <th>Priorização do Requisito (Must, Should, Could)</th>
+  <th>Descrição Sucinta do Requisito</th>
+  <th>User Histories (U.S.) associadas</th>
+  </tr>
+  </thead>
+
+
+  <tbody>
+  <tr>
+  <td>01</td>
+  <td>Sprint 1</td>
+  <td>Cadastro de Clientes e Vendedores</td>
+  <td>Funcional</td>
+  <td>Must</td>
+  <td>Permitir o cadastro de clientes e vendedores no sistema.</td>
+  <td>US01, US02</td>
+  </tr>
+  <tr>
+  <td>02</td>
+  <td>Sprints 1</td>
+  <td>Visualização do Cardápio e Realização de Pedidos</td>
+  <td>Funcional</td>
+  <td>Must</td>
+  <td>Permitir aos clientes visualizar o cardápio e realizar pedidos.</td>
+  <td>US03, US04</td>
+  </tr>
+
+  <tr>
+  <td>03</td>
+  <td>Sprint 2</td>
+  <td>Gerenciamento de Pedidos na Cozinha e Notificações de Pedido Pronto</td>
+  <td>Funcional</td>
+  <td>Funcional	Should</td>
+  <td>Should	Permitir à cozinha gerenciar os pedidos e notificar quando estiverem prontos.</td>
+  <td>US05, US06</td>
+  </tr>
+
+  <tr>
+  <td>04</td>
+  <td>Sprint 2</td>
+  <td>Gestão de Mesas</td>
+  <td>Funcional</td>
+  <td>Should</td>
+  <td>Gerenciar a alocação e disponibilidade de mesas.</td>
+  <td>US07</td>
+  </tr>
+
+  <tr>
+  <td>05</td>
+  <td>Sprint 3</td>
+  <td>Sistema de Reservas Online</td>
+  <td>Funcional</td>
+  <td>Could</td>
+  <td>Permitir aos clientes fazer reservas de mesas online.</td>
+  <td>US08</td>
+  </tr>
+
+  <tr>
+  <td>06</td>
+  <td>Sprints 3</td>
+  <td>Integração com Sistemas de Pagamento</td>
+  <td>Funcional</td>
+  <td>Must</td>
+  <td>Integrar diferentes métodos de pagamento ao sistema.</td>
+  <td>US09</td>
+  </tr>
+  
+  <tr>
+  <td>07</td>
+  <td>Sprint 4</td>
+  <td>Feedback e Avaliações dos Clientes</td>
+  <td>Funcional</td>
+  <td>Should</td>
+  <td>Coletar e gerenciar feedbacks e avaliações dos clientes.</td>
+  <td>US10</td>
+  </tr>
+  
+  <tr>
+  <td>08</td>
+  <td>Sprint 4</td>
+  <td>Emissão de Faturas e Relatórios Gerenciais</td>
+  <td>Funcional</td>
+  <td>Could</td>
+  <td>Gerar faturas e relatórios gerenciais automaticamente.</td>
+  <td>US11</td>
+  </tr>
+
+
+</tbody>
+</table>
+
+
 
 </code></pre>
 
