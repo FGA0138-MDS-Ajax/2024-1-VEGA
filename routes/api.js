@@ -154,7 +154,7 @@ const calcularValorTotalFinalizados = async () => {
   try {
     // Executar a consulta e calcular o valor total dos pedidos finalizados
     const query = `
-      SELECT SUM(quantidade * valorUnitario) AS valor_total
+      SELECT SUM(quantidade * valorunitario) AS valor_total
       FROM finalizado
     `;
     const result = await client.query(query);
@@ -198,7 +198,7 @@ const atualizarStatusFinalizado = async (pedidoId, novoStatus) => {
     await client.query('BEGIN'); // Iniciar transação
 
     // Verificar se o pedido existe antes de atualizar
-    const querySelect = 'SELECT * FROM Pedidos WHERE pedidoId = $1';
+    const querySelect = 'SELECT * FROM pedidos WHERE pedidoid = $1';
     const resultSelect = await client.query(querySelect, [pedidoId]);
     const pedido = resultSelect.rows[0];
 
@@ -209,7 +209,7 @@ const atualizarStatusFinalizado = async (pedidoId, novoStatus) => {
 
     // Atualizar o status do pedido na tabela Pedidos
     const queryUpdate = `
-      UPDATE Pedidos
+      UPDATE pedidos
       SET statusPedido = $1
       WHERE pedidoId = $2
       RETURNING *
@@ -220,7 +220,7 @@ const atualizarStatusFinalizado = async (pedidoId, novoStatus) => {
     // Verificar se o status atualizado é 'finalizado'
     if (novoStatus.toLowerCase() === 'finalizado') {
       const queryInsertFinalizado = `
-        INSERT INTO finalizado (pedidoId, produtoId, quantidade, valorUnitario, mesaId, clienteId, data_horaPedido, statusPedido, observacao)
+        INSERT INTO finalizado (pedidoid, produtoid, quantidade, valorunitario, mesaid, clienteid, data_horaPedido, statuspedido, observacao)
         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
       `;
       await client.query(queryInsertFinalizado, [
@@ -230,7 +230,7 @@ const atualizarStatusFinalizado = async (pedidoId, novoStatus) => {
       ]);
 
       // Remover o pedido da tabela Pedidos
-      const queryDelete = 'DELETE FROM Pedidos WHERE pedidoId = $1';
+      const queryDelete = 'DELETE FROM pedidos WHERE pedidoId = $1';
       await client.query(queryDelete, [pedidoId]);
     }
 
@@ -273,7 +273,7 @@ const atualizarStatusPedido = async (pedidoId, novoStatus) => {
     await client.query('BEGIN'); // Iniciar transação
 
     // Verificar se o pedido existe antes de atualizar
-    const querySelect = 'SELECT * FROM Pedidos WHERE pedidoId = $1';
+    const querySelect = 'SELECT * FROM pedidos WHERE pedidoId = $1';
     const resultSelect = await client.query(querySelect, [pedidoId]);
     const pedido = resultSelect.rows[0];
 
@@ -284,7 +284,7 @@ const atualizarStatusPedido = async (pedidoId, novoStatus) => {
 
     // Atualizar o status do pedido na tabela Pedidos
     const queryUpdate = `
-      UPDATE Pedidos
+      UPDATE pedidos
       SET statusPedido = $1
       WHERE pedidoId = $2
       RETURNING *
@@ -349,7 +349,7 @@ const adicionarProduto = async (nome, descricao, categoria, preco) => {
 
     // Inserir o novo produto na tabela Produtos
     const queryInsert = `
-      INSERT INTO Produtos (nome, descricao, categoria, preco)
+      INSERT INTO produtos (nome, descricao, categoria, preco)
       VALUES ($1, $2, $3, $4)
     `;
     await client.query(queryInsert, [nome, descricao, categoria, preco]);

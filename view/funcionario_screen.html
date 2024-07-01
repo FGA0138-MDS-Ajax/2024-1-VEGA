@@ -121,6 +121,41 @@
             <div class="container">
               <div class="extra-margin-container">
                 <div class="reservation-inner clearfix">
+<<<<<<< HEAD
+=======
+                  <h3>Adicionar Pedido</h3>
+                  <!-- <form id="adicionarPedidoForm">
+                    <label for="produtoId">ID do Produto:</label>
+                    <input
+                      type="text"
+                      id="produtoId"
+                      name="produtoId"
+                      required
+                    /><br />
+                    <label for="quantidade">Quantidade:</label>
+                    <input
+                      type="text"
+                      id="quantidade"
+                      name="quantidade"
+                      required
+                    /><br />
+                    <label for="mesaId">ID da Mesa:</label>
+                    <input
+                      type="text"
+                      id="mesaId"
+                      name="mesaId"
+                      required
+                    /><br />
+                    <label for="clienteId">ID do Cliente:</label>
+                    <input
+                      type="text"
+                      id="clienteId"
+                      name="clienteId"
+                      required
+                    /><br />
+                    <button type="submit">Adicionar Pedido</button>
+                  </form> -->
+>>>>>>> 9f7679034bff738467bed05f2325eac86960e468
                   <div id="adicionarPedidoResult"></div>
                 </div>
         </div>
@@ -224,7 +259,12 @@
                 pedidosHtml += `
               <li>
                 Pedido ID: ${pedido.pedidoId}, Produto: ${pedido.produtoId}, Quantidade: ${pedido.quantidade}, Valor Unitário: R$${pedido.valorUnitario}
+<<<<<<< HEAD
                 <button onclick="apagarPedido(${pedido.pedidoId})" style="font-size: 12px; padding: 5px 10px; margin-left: 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #ffffff;">Apagar Pedido</button>
+=======
+                <button onclick="apagarPedido(${pedido.pedidoId})">Apagar Pedido</button>
+                <button onclick="atualizarStatusPedido(${pedido.pedidoId})">Estatus</button>
+>>>>>>> 9f7679034bff738467bed05f2325eac86960e468
               </li>`;
               });
               pedidosHtml += "</ul>";
@@ -261,6 +301,32 @@
           .catch((error) => {
             // console.error(`Erro ao apagar pedido ${pedidoId}:`, error);
             alert("Erro ao apagar pedido.");
+          });
+      }
+
+      function atualizarStatusPedido(pedidoId, finalizado) {
+        fetch("/api/atualizar_status_pedido", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ pedidoId: pedidoId }),
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.text();
+          })
+          .then((message) => {
+            alert(message);
+            // Optionally refresh the list of pedidos
+            const pedidosList = document.getElementById("pedidosList");
+            pedidosList.innerHTML = "";
+          })
+          .catch((error) => {
+            console.error(`Erro ao atualizar ${pedidoId}:`, error);
+            alert("Erro ao apagar atualizar.");
           });
       }
     </script>
