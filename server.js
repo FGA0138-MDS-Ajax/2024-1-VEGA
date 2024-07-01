@@ -18,6 +18,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'view', 'index-01.html'));
 });
 
+app.get('/funcionario_screen', (req, res) => {
+  res.sendFile(path.join(__dirname, 'view', 'funcionario_screen.html'));
+  });
+
 const port = 3000;
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);

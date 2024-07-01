@@ -94,28 +94,31 @@ router.post('/enviar_formulario', async (req, res) => {
 
 
 //---------------------------------------------------Função para login de funcionários---------------------------------------------------------------------------
+// logins the user and saves the user data in the client session
 const loginFuncionario = async (cpf, senha) => {
   const client = await pool.connect();
+  const userData = {}; // create an empty object to store user data
+
+  // try to find the user by CPF
 
   try {
     // Procurar funcionário pelo CPF
     const querySelect = `
-      SELECT nome, senha FROM Funcionario
+      SELECT nome, senha, endereco, especializacao, quantidadedemesas FROM Funcionario
       WHERE cpf = $1;
     `;
     const resultSelect = await client.query(querySelect, [cpf]);
     const funcionario = resultSelect.rows[0];
+    userData.funcionario = funcionario; // save the user data in the client session
+    userData.funcionario.senha = senha; // save the user password in the client session
+    
 
+    // if the user is found, check if the password is correct
     if (funcionario) {
-      // Verificar se a senha está correta
-      // const senhaCorreta = await bcrypt.compare(senha, funcionario.senha);
-      // if (senhaCorreta) {
-      //   return `Login bem-sucedido. Bem-vindo, ${funcionario.nome}!`;
-      // } else {
-      //   return `Senha incorreta.`;
-      // }
-       if (senha===funcionario.senha) {
-        return `Login bem-sucedido. Bem-vindo, ${funcionario.nome}!`;
+      if (senha === funcionario.senha) {
+        // generate the HTML for the user
+        return userData;
+
       } else {
         return `Senha incorreta.`;
       }
@@ -131,6 +134,7 @@ const loginFuncionario = async (cpf, senha) => {
 };
 
 //----------------------------------------------------- Rota POST para login de funcionários--------------------------------------------------------------------
+
 router.post('/login', async (req, res) => {
   const { cpf, senha } = req.body;
 
@@ -142,7 +146,6 @@ router.post('/login', async (req, res) => {
     res.status(500).send('Erro no servidor');
   }
 });
-
 
 // -----------------------------------------Função para calcular o valor total dos pedidos finalizados------------------------------------
 const calcularValorTotalFinalizados = async () => {
@@ -363,14 +366,14 @@ router.post('/adicionar_produto', async (req, res) => {
 
 
 //-----------------------------------------------------------Função para adicionar um novo pedido ao carrinho ()---------------------------------------------------
-const adicionarPedido = async (produtoId, quantidade) => {
+const adicionarPedido = async (produtoId, mesaId, quantidade) => {
   const client = await pool.connect();
 
   try {
     await client.query('BEGIN'); // Iniciar transação
 
     // Verificar se o produto existe no estoque (opcional)
-    const querySelectProduto = 'SELECT * FROM Produtos WHERE produtoId = $1';
+    const querySelectProduto = 'SELECT * FROM produtos WHERE produtoid = $1';
     const resultSelectProduto = await client.query(querySelectProduto, [produtoId]);
     const produto = resultSelectProduto.rows[0];
     if (!produto) {
@@ -380,15 +383,14 @@ const adicionarPedido = async (produtoId, quantidade) => {
 
     // Inserir o pedido na tabela Carrinho
     const queryInsertPedido = `
-      INSERT INTO Carrinho (produtoId, quantidade, valorUnitario, mesaId, clienteId, data_horaPedido)
+      INSERT INTO pedidos (produtoid, quantidade, valorunitario, mesaid, clienteid, data_horaPedido)
       VALUES ($1, $2, $3, $4, $5, CURRENT_TIMESTAMP)
     `;
-    await client.query(queryInsertPedido, [produtoId, quantidade, produto.preco, 0, 0]); // Assumindo que mesaId e clienteId são 0 por simplicidade
+    await client.query(queryInsertPedido, [produtoId, quantidade, produto.preco, mesaId, 0]); // Assumindo que mesaId e clienteId são 0 por simplicidade
 
     // Confirmar a transação
     await client.query('COMMIT');
 
-    console.log(`Pedido do produto '${produto.nome}' adicionado com sucesso ao carrinho.`);
     return true;
   } catch (error) {
     await client.query('ROLLBACK');
@@ -401,10 +403,10 @@ const adicionarPedido = async (produtoId, quantidade) => {
 
 //----------------------------------------------------Rota POST para adicionar um novo pedido ao carrinho ()---------------------------------------------------------
 router.post('/adicionar_pedido', async (req, res) => {
-  const { produtoId, quantidade } = req.body;
+  const { produtoId, mesaId, quantidade } = req.body;
 
   try {
-    const sucesso = await adicionarPedido(produtoId, quantidade);
+    const sucesso = await adicionarPedido(produtoId, mesaId, quantidade);
     if (sucesso) {
       res.status(200).send(`Pedido do produto ID ${produtoId} adicionado com sucesso ao carrinho.`);
     } else {
@@ -415,72 +417,165 @@ router.post('/adicionar_pedido', async (req, res) => {
   }
 });
 
-//--------------------------------------------------------Função para listar pedidos e confirmar-------------------------------------------------------------------------
-const listarPedidosEConfirmar = async () => {
+const listarPedidosPorMesa = async (mesaId) => {
   const client = await pool.connect();
+  const pedidosList = [];
 
   try {
-    await client.query('BEGIN'); // Iniciar transação
-
-    // Consultar todos os pedidos no carrinho (tabela Carrinho)
-    const querySelectPedidos = 'SELECT * FROM Carrinho';
-    const resultSelectPedidos = await client.query(querySelectPedidos);
+    // Consultar todos os pedidos na tabela Pedidos para uma mesa específica
+    const querySelectPedidos = 'SELECT * FROM pedidos WHERE mesaid = $1';
+    const resultSelectPedidos = await client.query(querySelectPedidos, [mesaId]);
+    console.log(resultSelectPedidos);
+    console.log(resultSelectPedidos.rows);
     const pedidos = resultSelectPedidos.rows;
 
     // Verificar se há pedidos para listar
     if (pedidos.length === 0) {
-      console.log("Não há pedidos no carrinho para listar.");
-      return;
+      console.log(`Não há pedidos para a mesa ${mesaId}.`);
+      return { message: `Não há pedidos para a mesa ${mesaId}.` };
     }
 
     // Exibir os pedidos
-    console.log("Lista de Pedidos no Carrinho:");
+    console.log(`Lista de Pedidos para a mesa ${mesaId}:`);
     pedidos.forEach(pedido => {
-      console.log(`ID do Pedido: ${pedido.carrinhoid}, Produto: ${pedido.produtoid}, Quantidade: ${pedido.quantidade}, Valor Unitário: R$${pedido.valorunitario.toFixed(2)}`);
+      console.log(`ID do Pedido: ${pedido.pedidoid}, Produto: ${pedido.produtoid}, Quantidade: ${pedido.quantidade}, Valor Unitário: R$${pedido.valorunitario}`);
+      pedidosList.push({
+        pedidoId: pedido.pedidoid,
+        produtoId: pedido.produtoid,
+        quantidade: pedido.quantidade,
+        valorUnitario: pedido.valorunitario,
+        mesaId: pedido.mesaid,
+        clienteId: pedido.clienteid,
+        dataHoraPedido: pedido.data_horapedido
+      });
     });
 
-    // Perguntar ao usuário se deseja realizar o pedido
-    const confirmacao = 's'; // Aqui você pode simular a entrada do usuário ou implementar uma lógica de interação real
-
-    if (confirmacao === 's') {
-      // Mover os pedidos do carrinho (Carrinho) para a tabela de pedidos (Pedidos)
-      for (const pedido of pedidos) {
-        const queryInsertPedido = `
-          INSERT INTO Pedidos (produtoId, quantidade, valorUnitario, mesaId, clienteId, data_horaPedido)
-          VALUES ($1, $2, $3, $4, $5, $6)
-        `;
-        await client.query(queryInsertPedido, [pedido.produtoid, pedido.quantidade, pedido.valorunitario, pedido.mesaid, pedido.clienteid, pedido.data_horapedido]);
-      }
-
-      // Confirmar a transação para mover os pedidos para a tabela Pedidos
-      await client.query('COMMIT');
-      console.log("Pedidos movidos para a tabela Pedidos.");
-
-      // Limpar o carrinho após a confirmação do pedido
-      const queryDeleteCarrinho = 'DELETE FROM Carrinho';
-      await client.query(queryDeleteCarrinho);
-      await client.query('COMMIT');
-      console.log("Carrinho limpo após a confirmação do pedido.");
-    } else {
-      console.log("Pedido não confirmado.");
-    }
+    return pedidosList;
   } catch (error) {
-    await client.query('ROLLBACK');
-    console.error(`Erro ao listar ou confirmar pedidos: ${error}`);
+    console.error(`Erro ao listar pedidos para a mesa ${mesaId}: ${error}`);
+    throw error;
   } finally {
     client.release();
   }
 };
 
-//-----------------------------------------------------Rota GET para listar pedidos e confirmar----------------------------------------------------------------------------
-router.get('/listar_pedidos_e_confirmar', async (req, res) => {
+//-----------------------------------------------------Rota GET para listar pedidos por mesa----------------------------------------------------------------------------
+router.get('/listar_pedidos/:mesaId', async (req, res) => {
+  const { mesaId } = req.params;
+
   try {
-    await listarPedidosEConfirmar();
-    res.status(200).send('Operação concluída.');
+    const pedidosList = await listarPedidosPorMesa(mesaId);
+    res.status(200).json(pedidosList);
   } catch (error) {
     console.error('Erro no servidor:', error);
     res.status(500).send('Erro no servidor');
   }
 });
 
+
+// ----------------------------------------- Listar todas as mesas ------------------------------------
+
+const listarTodasAsMesas = async () => {
+  const client = await pool.connect();
+  const mesasList = [];
+
+  try {
+    // Consultar todas as mesas na tabela Mesas
+    const querySelectMesas = 'SELECT * FROM mesas';
+    const resultSelectMesas = await client.query(querySelectMesas);
+    const mesas = resultSelectMesas.rows;
+
+    // Verificar se há mesas para listar
+    if (mesas.length === 0) {
+      console.log('Não há mesas.');
+      return { message: 'Não há mesas.' };
+    }
+
+    // Exibir as mesas
+    console.log('Lista de Mesas:');
+    mesas.forEach(mesa => {
+      console.log(`ID da Mesa: ${mesa.mesaid}, Capacidade: ${mesa.capacidade}, Email: ${mesa.email}, Disponivel: ${mesa.disponivel}, Data da Reserva: ${mesa.datadareserva}, Hora da Reserva: ${mesa.horadareserva}, Pessoas: ${mesa.persons}`);
+      mesasList.push({
+        mesaId: mesa.mesaid,
+        capacidade: mesa.capacidade,
+        email: mesa.email,
+        disponivel: mesa.disponivel,
+        dataDaReserva: mesa.datadareserva,
+        horaDaReserva: mesa.horadareserva,
+        pessoas: mesa.persons
+      });
+    });
+
+    return mesasList;
+  } catch (error) {
+    console.error(`Erro ao listar mesas: ${error}`);
+    throw error;
+  } finally {
+    client.release();
+  }
+};
+
+router.get('/listar_mesas', async (req, res) => {
+  try {
+    const mesasList = await listarTodasAsMesas();
+    console.log(mesasList);
+    res.status(200).json(mesasList);
+  } catch (error) {
+    console.error('Erro no servidor:', error);
+    res.status(500).send('Erro no servidor');
+  }
+});
+
+
+
+// ----------------------------------------- apagar pedidos ------------------------------------
+
+const apagarPedido = async (pedidoId) => {
+  const client = await pool.connect();
+
+  try {
+    await client.query('BEGIN'); // Iniciar transação
+
+    // Verificar se o pedido existe antes de apagar
+    const querySelect = 'SELECT * FROM Pedidos WHERE pedidoId = $1';
+    const resultSelect = await client.query(querySelect, [pedidoId]);
+    const pedido = resultSelect.rows[0];
+
+    if (!pedido) {
+      console.log(`Pedido com ID ${pedidoId} não encontrado.`);
+      return false;
+    }
+
+    // Apagar o pedido na tabela Pedidos
+    const queryDelete = 'DELETE FROM Pedidos WHERE pedidoId = $1';
+    await client.query(queryDelete, [pedidoId]);
+
+    // Confirmar a transação
+    await client.query('COMMIT');
+
+    console.log(`Pedido ID ${pedidoId} apagado com sucesso.`);
+    return true;
+  } catch (error) {
+    await client.query('ROLLBACK');
+    console.error(`Erro ao apagar pedido: ${error}`);
+    return false;
+  } finally {
+    client.release();
+  }
+};
+
+router.post('/apagar_pedido', async (req, res) => {
+  const { pedidoId } = req.body;
+
+  try {
+    const sucesso = await apagarPedido(pedidoId);
+    if (sucesso) {
+      res.status(200).send(`Pedido ID ${pedidoId} apagado com sucesso.`);
+    } else {
+      res.status(404).send(`Pedido com ID ${pedidoId} não encontrado.`);
+    }
+  } catch (error) {
+    res.status(500).send('Erro no servidor');
+  }
+});
 module.exports = router;

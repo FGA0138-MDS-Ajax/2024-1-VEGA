@@ -38,70 +38,70 @@
         <div class="container-fluid p-0">
           <div class="content-detail p-0">
             <!-- Login form -->
-            <form action="/api/login" class="login-form" method="post">
-              <div class="blobs_1"></div>
-              <div class="blobs_2"></div>
-              <div class="blobs_5"></div>
-              <div class="blobs_6"></div>
-              <div class="blobs_7"></div>
-              <div class="imgcontainer">
-                <img src="assets/images/logo.png" alt="Avatar" class="avatar" />
-              </div>
-              <div class="input-control">
+            <div class="blobs_1"></div>
+            <div class="blobs_2"></div>
+            <div class="blobs_5"></div>
+            <div class="blobs_6"></div>
+            <div class="blobs_7"></div>
+            <div class="imgcontainer">
+              <img src="assets/images/logo.png" alt="Avatar" class="avatar" />
+            </div>
+            <div class="input-control">
+              <input
+                type="text"
+                name="cpf"
+                id="cpf"
+                placeholder="Coloque o seu CPF"
+                required
+              />
+              <span class="password-field-show">
                 <input
-                  type="text"
-                  name="cpf"
-                  placeholder="Coloque o seu CPF"
+                  type="password"
+                  name="senha"
+                  id="senha"
+                  placeholder="Coloque a senha"
                   required
                 />
-                <span class="password-field-show">
-                  <input
-                    type="password"
-                    name="senha"
-                    placeholder="Coloque a senha"
-                    required
-                  />
-                  <span
-                    data-toggle=".password-field"
-                    class="fa fa-fw fa-eye field-icon toggle-password"
-                  ></span>
-                </span>
-                <label class="label-container"
-                  >Lembrar
-                  <input type="checkbox" />
-                  <span class="checkmark"></span>
-                </label>
-                <span class="psw"
-                  ><a href="forgot.html" class="forgot-btn"
-                    >Esqueceu a senha?</a
-                  ></span
-                >
-                <div class="login-btns">
-                  <button type="submit">Login</button>
-                </div>
-                <div class="division-lines">
-                  <p>or login with</p>
-                </div>
-                <div class="login-with-btns">
-                  <button type="button" class="google">
-                    <i class="fab fa-google"></i>
-                  </button>
-                  <button type="button" class="facebook">
-                    <i class="fab fa-facebook-f"></i>
-                  </button>
-                  <button type="button" class="twitter">
-                    <i class="fab fa-twitter"></i>
-                  </button>
-                  <button type="button" class="linkedin">
-                    <i class="fab fa-linkedin-in"></i>
-                  </button>
-                  <span class="already-acc"
-                    >Not a member?
-                    <a href="signup.html" class="signup-btn">Sign up</a></span
-                  >
-                </div>
+                <span
+                  data-toggle=".password-field"
+                  class="fa fa-fw fa-eye field-icon toggle-password"
+                ></span>
+              </span>
+              <label class="label-container"
+                >Lembrar
+                <input type="checkbox" />
+                <span class="checkmark"></span>
+              </label>
+              <span class="psw"
+                ><a href="forgot.html" class="forgot-btn"
+                  >Esqueceu a senha?</a
+                ></span
+              >
+              <div class="login-btns">
+                <button id="login-btn" type="submit">Login</button>
               </div>
-            </form>
+              <div class="division-lines">
+                <p>or login with</p>
+              </div>
+              <div class="login-with-btns">
+                <button type="button" class="google">
+                  <i class="fab fa-google"></i>
+                </button>
+                <button type="button" class="facebook">
+                  <i class="fab fa-facebook-f"></i>
+                </button>
+                <button type="button" class="twitter">
+                  <i class="fab fa-twitter"></i>
+                </button>
+                <button type="button" class="linkedin">
+                  <i class="fab fa-linkedin-in"></i>
+                </button>
+                <span class="already-acc"
+                  >Not a member?
+                  <a href="signup.html" class="signup-btn">Sign up</a></span
+                >
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -110,5 +110,39 @@
     <script src="assets/js/jquery-3.5.1.min.js"></script>
     <!-- Theme js-->
     <script src="assets/js/script.js"></script>
+
+    <script>
+      // Logar funcionario
+      function logarFuncionario() {
+        const cpf = document.getElementById("cpf").value;
+        const senha = document.getElementById("senha").value;
+
+        fetch("/api/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ cpf, senha }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.funcionario) {
+              sessionStorage.setItem("user", JSON.stringify(data.funcionario));
+              window.location.href = "/funcionario_screen.html";
+            } else {
+              alert(data); // Display error message from server
+            }
+          })
+          .catch((error) => {
+            console.error("Erro ao logar funcionario:", error);
+            alert("Erro ao logar funcionario.");
+          });
+      }
+
+      // Event listeners
+      document
+        .getElementById("login-btn")
+        .addEventListener("click", logarFuncionario);
+    </script>
   </body>
 </html>
