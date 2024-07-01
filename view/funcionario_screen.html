@@ -6,22 +6,10 @@
     <meta content="" name="description" />
     <meta content="" name="author" />
     <meta content="" name="keywords" />
-    <meta
-      content="width=device-width, initial-scale=1, maximum-scale=1"
-      name="viewport"
-    />
-    <link
-      href="/css/plugins.css"
-      media="all"
-      rel="stylesheet"
-      type="text/css"
-    />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" />
+    <link href="/css/plugins.css" media="all" rel="stylesheet" type="text/css" />
     <link href="/css/style.css" media="all" rel="stylesheet" type="text/css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900%7CPlayfair+Display:500,600,700,800,900"
-      rel="stylesheet"
-      type="text/css"
-    />
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900%7CPlayfair+Display:500,600,700,800,900" rel="stylesheet" type="text/css" />
     <link rel="icon" href="img/logo.png" type="image/x-icon" />
     <link rel="icon" href="img/logo.jpg" type="image/png" />
   </head>
@@ -32,22 +20,13 @@
         <div class="container-fluid">
           <div class="main-navigation">
             <div class="navbar-header">
-              <button
-                aria-expanded="false"
-                class="navbar-toggle collapsed"
-                data-target="#navbar-collapse"
-                data-toggle="collapse"
-                type="button"
-              >
+              <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#navbar-collapse" data-toggle="collapse" type="button">
                 <span class="sr-only">Toggle Navegação</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a
-                class="navbar-brand hidden-sm hidden-md hidden-lg logo active"
-                href="#"
-              >
+              <a class="navbar-brand hidden-sm hidden-md hidden-lg logo active" href="#">
                 <img alt="Logo" class="logo-light" src="img/logo-light.png" />
                 <img alt="Logo" class="logo-dark" src="img/logo-dark.png" />
               </a>
@@ -59,11 +38,7 @@
                 <li><a href="#works">Menu</a></li>
                 <li class="hidden-xs">
                   <a class="logo" href="#">
-                    <img
-                      alt="Logo"
-                      class="logo-light"
-                      src="img/logo-light.png"
-                    />
+                    <img alt="Logo" class="logo-light" src="img/logo-light.png" />
                     <img alt="Logo" class="logo-dark" src="img/logo-dark.png" />
                   </a>
                 </li>
@@ -80,32 +55,20 @@
       <div class="section-all bg-light">
         <div class="hero-fullscreen-FIX">
           <div class="hero-bg">
-            <div class="swiper-container-wrapper">
-              <div class="swiper-container swiper2">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <div class="swiper-slide-inner">
-                      <div
-                        class="swiper-slide-inner-bg bg-img-1 overlay overlay-dark"
-                      ></div>
-                      <div class="swiper-slide-inner-txt-2">
-                        <div
-                          class="section-title section-title-home fadeIn-element"
-                        >
-                          <h2
-                            class="section-title-line section-title-line-home"
-                          >
-                            <span>Disciplina de MDS</span>
-                          </h2>
-                        </div>
-                        <div class="divider-m"></div>
-                        <h1
-                          class="hero-heading hero-heading-home fadeIn-element"
-                        >
-                          <span id="welcomeMessage"></span>
-                        </h1>
-                        <div class="divider-m"></div>
+            <div class="swiper-container swiper2">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="swiper-slide-inner">
+                    <div class="swiper-slide-inner-bg bg-img-1 overlay overlay-dark"></div>
+                    <div class="swiper-slide-inner-txt-2">
+                      <div class="section-title section-title-home fadeIn-element">
+                        <h2 class="section-title-line section-title-line-home">
+                          <span>Disciplina de MDS</span>
+                        </h2>
                       </div>
+                      <h1 class="hero-heading hero-heading-home fadeIn-element">
+                        <span id="welcomeMessage"></span>
+                      </h1>
                     </div>
                   </div>
                 </div>
@@ -115,12 +78,31 @@
         </div>
       </div>
     </div>
-    <div class="reservation-wrapper fadeIn-element">
-      <div class="container">
-        <div class="extra-margin-container">
-          <div class="reservation-inner clearfix">
-            <div id="mesasList"></div>
-            <div id="pedidosList"></div>
+    <div class="section-all bg-light" style="padding-bottom: 40px;">
+      <div class="container" style="background-color: #f0f0f0; border: 2px solid #ccc; padding-top: 40px; border-radius: 34px; padding-bottom: 40px; width: 50%; text-align: center; display: flex; align-items: center; flex-direction: column; margin-top: 30px;">
+        <div class="divider-xl-1">
+          <h2>Adicionar Pedido</h2>
+          <form id="adicionarPedidoForm">
+            <label for="produtoId">ID do Produto:</label>
+            <input type="text" id="produtoId" name="produtoId" required /><br />
+            <label for="quantidade">Quantidade:</label>
+            <input type="text" id="quantidade" name="quantidade" required /><br />
+            <label for="mesaId">ID da Mesa:</label>
+            <input type="text" id="mesaId" name="mesaId" required /><br />
+            <label for="clienteId">ID do Cliente:</label>
+            <input type="text" id="clienteId" name="clienteId" required /><br />
+            <button type="submit" style="font-size: 15px; padding: 10px 20px; width: 200px; height: 40px; border: 1px solid #ccc; border-radius: 4px; background-color: #ffffff; font-weight: bold; margin-top: 20px;">Adicionar Pedido</button>
+          </form>
+          <div id="adicionarPedidoResult"></div>
+        </div>
+      </div>
+    </div>
+    <div class="section-all bg-light" style="padding-bottom: 40px;">
+      <div class="container" style="background-color: #f0f0f0; border: 2px solid #ccc; padding-top: 40px; border-radius: 34px; padding-bottom: 40px; width: 50%; text-align: center; display: flex; align-items: center; flex-direction: column; margin-top: 30px;">
+        <div class="divider-xl-1">
+          <div id="mesasPedidosWrapper">
+            <div id="mesasList" class="clearfix" style="text-align: center; margin-top: 20px;"></div>
+            <div id="pedidosList" class="clearfix" style="text-align: center; margin-top: 50px;"></div>
           </div>
         </div>
       </div>
@@ -139,60 +121,12 @@
             <div class="container">
               <div class="extra-margin-container">
                 <div class="reservation-inner clearfix">
-                  <h3>Adicionar Pedido</h3>
-                  <form id="adicionarPedidoForm">
-                    <label for="produtoId">ID do Produto:</label>
-                    <input
-                      type="text"
-                      id="produtoId"
-                      name="produtoId"
-                      required
-                    /><br />
-                    <label for="quantidade">Quantidade:</label>
-                    <input
-                      type="text"
-                      id="quantidade"
-                      name="quantidade"
-                      required
-                    /><br />
-                    <label for="mesaId">ID da Mesa:</label>
-                    <input
-                      type="text"
-                      id="mesaId"
-                      name="mesaId"
-                      required
-                    /><br />
-                    <label for="clienteId">ID do Cliente:</label>
-                    <input
-                      type="text"
-                      id="clienteId"
-                      name="clienteId"
-                      required
-                    /><br />
-                    <button type="submit">Adicionar Pedido</button>
-                  </form>
                   <div id="adicionarPedidoResult"></div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-12">
-            <div class="divider-l"></div>
-            <div class="the-line"></div>
-            <div class="divider-l"></div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="testimonial"></div>
-            <div class="inner"></div>
-          </div>
-          <div class="divider-l"></div>
-          <div class="txt"></div>
         </div>
       </div>
     </div>
+
     <script src="/js/plugins.js"></script>
     <script src="/js/dinex.js"></script>
     <script src="/js/script.js"></script>
@@ -225,7 +159,7 @@
                 mesasHtml += `
               <li>
                 Mesa ID: ${mesa.mesaId}, Capacidade: ${mesa.capacidade}, Disponível: ${mesa.disponivel}
-                <button onclick="listarPedidos(${mesa.mesaId})">Listar Pedidos</button>
+                <button onclick="listarPedidos(${mesa.mesaId})" style="font-size: 12px; padding: 5px 10px; margin-left: 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #ffffff;">Listar Pedidos</button>
               </li>`;
               });
               mesasHtml += "</ul>";
@@ -262,9 +196,7 @@
           })
             .then((response) => response.json())
             .then((data) => {
-              const resultDiv = document.getElementById(
-                "adicionarPedidoResult"
-              );
+              const resultDiv = document.getElementById("adicionarPedidoResult");
               resultDiv.innerHTML = `<p>${data.message}</p>`;
             })
             .catch((error) => {
@@ -292,7 +224,7 @@
                 pedidosHtml += `
               <li>
                 Pedido ID: ${pedido.pedidoId}, Produto: ${pedido.produtoId}, Quantidade: ${pedido.quantidade}, Valor Unitário: R$${pedido.valorUnitario}
-                <button onclick="apagarPedido(${pedido.pedidoId})">Apagar Pedido</button>
+                <button onclick="apagarPedido(${pedido.pedidoId})" style="font-size: 12px; padding: 5px 10px; margin-left: 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #ffffff;">Apagar Pedido</button>
               </li>`;
               });
               pedidosHtml += "</ul>";
@@ -300,10 +232,7 @@
             }
           })
           .catch((error) => {
-            console.error(
-              `Erro ao listar pedidos para a mesa ${mesaId}:`,
-              error
-            );
+            console.error(`Erro ao listar pedidos para a mesa ${mesaId}:`, error);
             document.getElementById("pedidosList").innerHTML =
               "<p>Erro ao carregar pedidos.</p>";
           });
@@ -330,7 +259,7 @@
             pedidosList.innerHTML = "";
           })
           .catch((error) => {
-            console.error(`Erro ao apagar pedido ${pedidoId}:`, error);
+            // console.error(`Erro ao apagar pedido ${pedidoId}:`, error);
             alert("Erro ao apagar pedido.");
           });
       }

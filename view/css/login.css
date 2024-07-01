@@ -135,7 +135,7 @@ h1 span:before {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-image: url("../images/page-bg.jpg");
+  background-image: url("../img/background/hero-bg-2.jpg");
   background-position: center;
   background-size: cover;
   background-blend-mode: overlay;

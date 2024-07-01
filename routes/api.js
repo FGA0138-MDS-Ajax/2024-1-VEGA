@@ -265,7 +265,7 @@ router.post('/atualizar_status_finalizado', async (req, res) => {
 });
 
 
-//------------------------------------------------------unção para atualizar o status de um pedido------------------------------------------------------------------------------------
+//------------------------------------------------------função para atualizar o status de um pedido------------------------------------------------------------------------------------
 const atualizarStatusPedido = async (pedidoId, novoStatus) => {
   const client = await pool.connect();
 
@@ -287,8 +287,28 @@ const atualizarStatusPedido = async (pedidoId, novoStatus) => {
       UPDATE Pedidos
       SET statusPedido = $1
       WHERE pedidoId = $2
+      RETURNING *
     `;
-    await client.query(queryUpdate, [novoStatus, pedidoId]);
+    const resultUpdate = await client.query(queryUpdate, [novoStatus, pedidoId]);
+    const pedidoAtualizado = resultUpdate.rows[0];
+
+    // Verificar se o status atualizado é 'finalizado'
+    if (novoStatus.toLowerCase() === 'finalizado') {
+  
+      const queryInsertFinalizado = `
+        INSERT INTO finalizado (pedidoId, produtoId, quantidade, valorUnitario, mesaId, clienteId, data_horaPedido, statusPedido, observacao)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+      `;
+      await client.query(queryInsertFinalizado, [
+        pedidoAtualizado.pedidoid, pedidoAtualizado.produtoid, pedidoAtualizado.quantidade,
+        pedidoAtualizado.valorunitario, pedidoAtualizado.mesaid, pedidoAtualizado.clienteid,
+        pedidoAtualizado.data_horapedido, pedidoAtualizado.statuspedido, pedidoAtualizado.observacao
+      ]);
+  
+      // Remover o pedido da tabela Pedidos
+      const queryDelete = 'DELETE FROM Pedidos WHERE pedidoId = $1';
+      await client.query(queryDelete, [pedidoId]);
+    }
 
     // Confirmar a transação
     await client.query('COMMIT');
@@ -425,8 +445,6 @@ const listarPedidosPorMesa = async (mesaId) => {
     // Consultar todos os pedidos na tabela Pedidos para uma mesa específica
     const querySelectPedidos = 'SELECT * FROM pedidos WHERE mesaid = $1';
     const resultSelectPedidos = await client.query(querySelectPedidos, [mesaId]);
-    console.log(resultSelectPedidos);
-    console.log(resultSelectPedidos.rows);
     const pedidos = resultSelectPedidos.rows;
 
     // Verificar se há pedidos para listar
@@ -435,10 +453,8 @@ const listarPedidosPorMesa = async (mesaId) => {
       return { message: `Não há pedidos para a mesa ${mesaId}.` };
     }
 
-    // Exibir os pedidos
-    console.log(`Lista de Pedidos para a mesa ${mesaId}:`);
+    // Formatar os pedidos para retorno
     pedidos.forEach(pedido => {
-      console.log(`ID do Pedido: ${pedido.pedidoid}, Produto: ${pedido.produtoid}, Quantidade: ${pedido.quantidade}, Valor Unitário: R$${pedido.valorunitario}`);
       pedidosList.push({
         pedidoId: pedido.pedidoid,
         produtoId: pedido.produtoid,
@@ -446,7 +462,8 @@ const listarPedidosPorMesa = async (mesaId) => {
         valorUnitario: pedido.valorunitario,
         mesaId: pedido.mesaid,
         clienteId: pedido.clienteid,
-        dataHoraPedido: pedido.data_horapedido
+        dataHoraPedido: pedido.data_horapedido,
+        status: pedido.statuspedido
       });
     });
 
@@ -458,6 +475,7 @@ const listarPedidosPorMesa = async (mesaId) => {
     client.release();
   }
 };
+
 
 //-----------------------------------------------------Rota GET para listar pedidos por mesa----------------------------------------------------------------------------
 router.get('/listar_pedidos/:mesaId', async (req, res) => {
