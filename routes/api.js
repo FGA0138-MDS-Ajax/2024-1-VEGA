@@ -188,25 +188,26 @@ router.get('/calcular_valor_total_finalizados/:mesaId', async (req, res) => {
 
 //-----------------------------------------Função para finalizar um pedido ----------------------------------------------------------------------------------
 
-const finalizarPedido = async (mesaId) => {
+const finalizarPedido = async (mesaid) => {
   const client = await pool.connect();
 
   try {
     await client.query('BEGIN');
 
-    // Atualizar a tabela finalizado para definir mesaId como NULL para a mesaId específica
+    // Atualizar a tabela finalizado para definir mesaid como 'finalizado' para a mesa específica
     const updateQuery = `
       UPDATE finalizado
-      SET mesaid = NULL
+      SET mesaid = 'finalizado'
       WHERE mesaid = $1
     `;
-    await client.query(updateQuery, [mesaId]);
+    const result = await client.query(updateQuery, [mesaid]);
+    console.log(`Pedidos finalizados atualizados para mesa ${mesaid}:`, result.rowCount);
 
     await client.query('COMMIT');
     return { success: true };
   } catch (error) {
     await client.query('ROLLBACK');
-    console.error(`Erro ao finalizar pedidos para a mesa ${mesaId}: ${error}`);
+    console.error(`Erro ao finalizar pedidos para a mesa ${mesaid}: ${error.message}`);
     throw error;
   } finally {
     client.release();
@@ -214,16 +215,20 @@ const finalizarPedido = async (mesaId) => {
 };
 
 //----------------------------------------- rota para a Função para finalizar um pedido
-
-router.post('/finalizar_pedido/:mesaId', async (req, res) => {
-  const mesaId = req.params.mesaId;
+router.post('/finalizar_pedido/:mesaid', async (req, res) => {
+  const mesaid = req.params.mesaid;
   try {
-    const result = await finalizarPedido(mesaId);
+    console.log(`Finalizando pedidos para a mesa ${mesaid}`);
+    const result = await finalizarPedido(mesaid);
+    console.log(`Resultado da finalização para mesa ${mesaid}:`, result);
     res.status(200).json(result);
   } catch (error) {
+    console.error(`Erro na rota ao finalizar pedidos para a mesa ${mesaid}:`, error.message);
     res.status(500).json({ message: 'Erro no servidor', error: error.message });
   }
 });
+
+
 
 //------------------------------------------------------função para atualizar o status de um pedido------------------------------------------------------------------------------------
 const atualizarStatusPedido = async (pedidoId, novoStatus) => {
@@ -397,6 +402,8 @@ router.post('/adicionar_pedido', async (req, res) => {
   }
 });
 
+//-----------------------------------------------------------Função para listar pedidos por mesa---------------------------------------------------
+
 const listarPedidosPorMesa = async (mesaId) => {
   const client = await pool.connect();
   const pedidosList = [];
@@ -436,11 +443,9 @@ const listarPedidosPorMesa = async (mesaId) => {
   }
 };
 
-
-//-----------------------------------------------------Rota GET para listar pedidos por mesa----------------------------------------------------------------------------
 router.get('/listar_pedidos/:mesaId', async (req, res) => {
   const { mesaId } = req.params;
-
+  
   try {
     const pedidosList = await listarPedidosPorMesa(mesaId);
     res.status(200).json(pedidosList);
@@ -449,6 +454,70 @@ router.get('/listar_pedidos/:mesaId', async (req, res) => {
     res.status(500).send('Erro no servidor');
   }
 });
+
+//-----------------------------------------------------Rota GET para listar pedidos finalizados por mesa----------------------------------------------------------------------------
+const listarPedidosFinalizadosPorMesa = async (mesaId) => {
+  const client = await pool.connect();
+  const pedidosList = [];
+
+  try {
+    console.log(`Listando pedidos finalizados para a mesa ${mesaId}`);
+
+    // Consultar todos os pedidos na tabela finalizado para uma mesa específica
+    const querySelectPedidos = 'SELECT * FROM finalizado WHERE mesaid = $1';
+    const resultSelectPedidos = await client.query(querySelectPedidos, [mesaId]);
+    const pedidos = resultSelectPedidos.rows;
+
+    console.log(`Pedidos encontrados para a mesa ${mesaId}:`, pedidos);
+
+    // Verificar se há pedidos para listar
+    if (pedidos.length === 0) {
+      console.log(`Não há pedidos para a mesa ${mesaId}.`);
+      return { message: `Não há pedidos para a mesa ${mesaId}.` };
+    }
+
+    // Formatar os pedidos para retorno
+    pedidos.forEach(pedido => {
+      pedidosList.push({
+        pedidoId: pedido.pedidoid,
+        produtoId: pedido.produtoid,
+        quantidade: pedido.quantidade,
+        valorUnitario: pedido.valorunitario,
+        mesaId: pedido.mesaid,
+        clienteId: pedido.clienteid,
+        dataHoraPedido: pedido.data_horapedido,
+        status: pedido.statuspedido
+      });
+    });
+
+    console.log(`Pedidos formatados para a mesa ${mesaId}:`, pedidosList);
+
+    return pedidosList;
+  } catch (error) {
+    console.error(`Erro ao listar pedidos para a mesa ${mesaId}:`, error);
+    throw error;
+  } finally {
+    client.release();
+  }
+};
+
+
+//-----------------------------------------------------Rota GET para listar pedidos finalizados por mesa
+router.get('/listar_pedidos_finalizados/:mesaId', async (req, res) => {
+  const { mesaId } = req.params;
+
+  try {
+    console.log(`Recebida solicitação para listar pedidos finalizados da mesa ${mesaId}`);
+    const pedidosList = await listarPedidosFinalizadosPorMesa(mesaId);
+    console.log(`Pedidos retornados para a mesa ${mesaId}:`, pedidosList);
+    res.status(200).json(pedidosList);
+  } catch (error) {
+    console.error('Erro no servidor:', error);
+    res.status(500).send('Erro no servidor');
+  }
+});
+
+
 
 
 // ----------------------------------------- Listar todas as mesas ------------------------------------

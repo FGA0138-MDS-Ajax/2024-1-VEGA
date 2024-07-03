@@ -246,7 +246,7 @@
       }
 
       function fecharConta(mesaId) {
-        fetch(`/api/listar_pedidos/${mesaId}`)
+        fetch(`/api/listar_pedidos_finalizados/${mesaId}`)
           .then((response) => {
             if (!response.ok) {
               throw new Error("Network response was not ok");
@@ -305,32 +305,33 @@
           });
       }
 
-      function finalizarConta(mesaId) {
-        console.error(mesaId)
-        fetch("/api/finalizar_pedido", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ mesaId: mesaId}),
+      function finalizarConta(mesaid) {
+        fetch(`/api/finalizar_pedido/${mesaid}`, {
+          method: 'POST'
         })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("Network response was not ok");
-            }
-            return response.text();
-          })
-          .then((message) => {
-            alert(message);
-            // Optionally refresh the list of pedidos
-            const pedidosList = document.getElementById("pedidosList");
-            pedidosList.innerHTML = "";
-          })
-          .catch((error) => {
-            console.error(`Erro ao finalizar ${pedidoId}:`, error);
-            alert("Erro ao finalizar comanda.");
-          });
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          if (data.success) {
+            alert('Conta finalizada com sucesso!');
+            fecharConta(mesaid); // Atualiza a lista de pedidos após finalizar a conta
+          } else {
+            alert('Erro ao finalizar a conta.');
+          }
+        })
+        .catch((error) => {
+          console.error(`Erro ao finalizar a conta para a mesa ${mesaid}:`, error);
+          alert('Erro ao finalizar a conta.');
+        });
       }
+
+
+
+
 
       function apagarPedido(pedidoId) {
         fetch("/api/apagar_pedido", {
