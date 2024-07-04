@@ -123,9 +123,9 @@
             <div class="container">
               <div class="extra-margin-container">
                 <div class="reservation-inner clearfix">       
-        </div>
-      </div>
-    </div>
+                </div>
+              </div>
+            </div>
 
     <script src="/js/plugins.js"></script>
     <script src="/js/dinex.js"></script>
@@ -160,7 +160,8 @@
               <li>
                 Mesa ID: ${mesa.mesaId}, Capacidade: ${mesa.capacidade}, Disponível: ${mesa.disponivel}
                 <button onclick="listarPedidos(${mesa.mesaId})" style="font-size: 12px; padding: 5px 10px; margin-left: 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #ffffff;">Listar Pedidos</button>
-              </li>`;
+                <button onclick="fecharConta(${mesa.mesaId})" style="font-size: 12px; padding: 5px 10px; margin-left: 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #ffffff;">Fechar Comanda</button>
+                </li>`;
               });
               mesasHtml += "</ul>";
               mesasList.innerHTML = mesasHtml;
@@ -245,6 +246,94 @@
               "<p>Erro ao carregar pedidos.</p>";
           });
       }
+
+      function fecharConta(mesaId) {
+        fetch(`/api/listar_pedidos_finalizados/${mesaId}`)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            const pedidosList = document.getElementById("pedidosList");
+            let pedidosHtml = "";
+
+            if (data.message) {
+              pedidosHtml = `<p>${data.message}</p>`;
+              pedidosList.innerHTML = pedidosHtml;
+            } else {
+              pedidosHtml += "<ul>";
+              data.forEach((pedido) => {
+                pedidosHtml += `
+                  <li>
+                    Pedido ID: ${pedido.pedidoId}, Produto: ${pedido.produtoId}, Quantidade: ${pedido.quantidade}, Valor Unitário: R$${pedido.valorUnitario}
+                    <button onclick="apagarPedido(${pedido.pedidoId})">Apagar Pedido</button>
+                  </li>`;
+              });
+              pedidosHtml += "</ul>";
+
+              // Requisição para obter o valor total finalizado
+              fetch(`/api/calcular_valor_total_finalizados/${mesaId}`)
+                .then((response) => {
+                  if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                  }
+                  return response.json();
+                })
+                .then((data) => {
+                  console.log("Valor total recebido:", data.valorTotal); // Adiciona um log para verificar a resposta
+                  if (typeof data.valorTotal === 'string') {
+                    // Adiciona o texto "Valor final" com o valor total
+                    pedidosHtml = `<p>Valor final: R$${data.valorTotal}</p>` + pedidosHtml;
+                  } else {
+                    throw new Error("Valor total não é uma string");
+                  }
+
+                  // Adiciona o botão ao final da lista
+                  pedidosHtml += `<button onclick="finalizarConta(${mesaId})">Finalizar Conta</button>`;
+
+                  pedidosList.innerHTML = pedidosHtml;
+                })
+                .catch((error) => {
+                  console.error(`Erro ao calcular valor total para a mesa ${mesaId}:`, error);
+                  pedidosList.innerHTML = "<p>Erro ao calcular valor total.</p>";
+                });
+            }
+          })
+          .catch((error) => {
+            console.error(`Erro ao listar pedidos para a mesa ${mesaId}:`, error);
+            document.getElementById("pedidosList").innerHTML = "<p>Erro ao carregar pedidos.</p>";
+          });
+      }
+
+      function finalizarConta(mesaid) {
+        fetch(`/api/finalizar_pedido/${mesaid}`, {
+          method: 'POST'
+        })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          if (data.success) {
+            alert('Conta finalizada com sucesso!');
+            fecharConta(mesaid); // Atualiza a lista de pedidos após finalizar a conta
+          } else {
+            alert('Erro ao finalizar a conta.');
+          }
+        })
+        .catch((error) => {
+          console.error(`Erro ao finalizar a conta para a mesa ${mesaid}:`, error);
+          alert('Erro ao finalizar a conta.');
+        });
+      }
+
+
+
+
 
       function apagarPedido(pedidoId) {
         fetch("/api/apagar_pedido", {
