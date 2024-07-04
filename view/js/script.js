@@ -130,6 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })(jQuery);
 
 
+    // Get the modal
     
 
     

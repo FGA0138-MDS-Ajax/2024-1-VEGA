@@ -12,10 +12,12 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900%7CPlayfair+Display:500,600,700,800,900" rel="stylesheet" type="text/css" />
     <link rel="icon" href="img/logo.png" type="image/x-icon" />
     <link rel="icon" href="img/logo.jpg" type="image/png" />
+    <link href="./payment/vendor/icomoon/css/iconfont.css" rel="stylesheet" /> 
+    <link href="./payment/vendor/icomoon/css/iconfont.min.css" rel="stylesheet" /> 
   </head>
   <body>
     <div class="border-top"></div>
-    <div id="header" class="fadeIn-element">
+      <div id="header" class="fadeIn-element">
       <nav class="navbar navbar-fixed-top navbar-bg-switch">
         <div class="container-fluid">
           <div class="main-navigation">
@@ -204,7 +206,7 @@
             });
         });
 
-      function listarPedidos(mesaId) {
+        function listarPedidos(mesaId) {
         fetch(`/api/listar_pedidos/${mesaId}`)
           .then((response) => {
             if (!response.ok) {
@@ -221,10 +223,16 @@
               data.forEach((pedido) => {
                 pedidosHtml += `
               <li>
-                Pedido ID: ${pedido.pedidoId}, Produto: ${pedido.produtoId}, Quantidade: ${pedido.quantidade}, Valor Unitário: R$${pedido.valorUnitario}
+                Pedido ID: ${pedido.pedidoId}, Produto: ${pedido.produtoId}, Quantidade: ${pedido.quantidade}, Valor Unitário: R$${pedido.valorUnitario}, Status: R$${pedido.statusPedido}
 
                 <button onclick="apagarPedido(${pedido.pedidoId})">Apagar Pedido</button>
-                <button onclick="atualizarStatusPedido(${pedido.pedidoId})">Status</button>
+
+                <select id="statusPedido${pedido.pedidoId}">
+                <option value="pendente">Pendente</option>
+                <option value="em preparo">Preparando</option>
+                <option value="finalizado">Finalizado</option>
+                </select>
+                <button onclick="atualizarStatusPedido(${pedido.pedidoId}, document.getElementById('statusPedido${pedido.pedidoId}').value)">Atualizar Status</button>
               </li>`;
               });
               pedidosHtml += "</ul>";
@@ -264,13 +272,14 @@
           });
       }
 
-      function atualizarStatusPedido(pedidoId, finalizado) {
+      function atualizarStatusPedido(pedidoId, novoStatus) {
+        console.error(novoStatus)
         fetch("/api/atualizar_status_pedido", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ pedidoId: pedidoId }),
+          body: JSON.stringify({ pedidoId: pedidoId, novoStatus: novoStatus}),
         })
           .then((response) => {
             if (!response.ok) {
