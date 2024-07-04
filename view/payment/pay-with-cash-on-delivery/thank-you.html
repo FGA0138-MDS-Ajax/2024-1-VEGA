@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="Utilize o método de Pagamento" />
+    <meta name="author" content="UWS" />
+    <title>PAGAMENTO | Pagamento PIX</title>
+
+    <!-- Favicon -->
+    <link href="../img/favicon.png" rel="shortcut icon" />
+
+    <!-- Google Fonts - Jost -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome CSS -->
+    <link
+      href="../vendor/font-awesome/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom Font Icons -->
+    <link href="../vendor/icomoon/css/iconfont.min.css" rel="stylesheet" />
+
+    <!-- Vendor CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../vendor/dmenu/css/menu.css" rel="stylesheet" />
+    <link href="../vendor/hamburgers/css/hamburgers.min.css" rel="stylesheet" />
+    <link href="../vendor/mmenu/css/mmenu.min.css" rel="stylesheet" />
+    <link
+      href="../vendor/magnific-popup/css/magnific-popup.css"
+      rel="stylesheet"
+    />
+    <link
+      href="../vendor/float-labels/css/float-labels.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Main CSS -->
+    <link href="./../css/style.css" rel="stylesheet" />
+
+    <!-- Custom CSS for form styling -->
+    <style>
+      .form-container,
+      .qr-container {
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background: #fff;
+        text-align: center;
+      }
+      .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+      }
+      .form-group label {
+        font-weight: bold;
+      }
+      .btn-2 {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #ff6600;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        font-size: 16px;
+      }
+      .btn-2:hover {
+        background: #e65c00;
+      }
+      .error-message {
+        color: red;
+        font-size: 14px;
+        display: none;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .qr-container {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div id="preloader">
+      <div data-loader="circle-side"></div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- Page -->
+    <div id="page">
+      <!-- Header -->
+      <header class="main-header sticky">
+        <a href="#menu" class="btn-mobile">
+          <div class="hamburger hamburger--spin" id="hamburger">
+            <div class="hamburger-box">
+              <div class="hamburger-inner"></div>
+            </div>
+          </div>
+        </a>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-6">
+              <div id="logo"></div>
+            </div>
+            <div class="col-lg-9 col-6">
+              <ul id="menuIcons">
+                <li></li>
+                <li>
+                  <a href="#"><i class="icon icon-shopping-cart2"></i></a>
+                </li>
+              </ul>
+              <!-- Menu -->
+              <nav id="menu" class="main-menu">
+                <ul>
+                  <li>
+                    <span><a href="../index.html">Início</a></span>
+                  </li>
+                  <li>
+                    <span
+                      ><a href="#">Pedido <i class="fa fa-chevron-down"></i></a
+                    ></span>
+                    <ul>
+                      <li>
+                        <span><a href="#">Pague de Casa</a></span>
+                      </li>
+                      <li>
+                        <span
+                          ><a href="../index.html"
+                            >Pague no Restaurante</a
+                          ></span
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <span><a href="../faq.html">Perguntas Frequentes</a></span>
+                  </li>
+                </ul>
+              </nav>
+              <!-- Menu End -->
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Header End -->
+
+      <!-- Main -->
+      <main>
+        <div class="confirm-wrap">
+          <!-- Container -->
+          <div class="container">
+            <!-- Row -->
+            <div class="row">
+              <!-- Left Sidebar -->
+              <div class="col-lg-12" id="mainContent">
+                <div class="form-container">
+                  <h3 class="text-center">Pagamento via PIX:</h3>
+                  <form id="pixForm" onsubmit="return validatePixForm()">
+                    <div class="form-group">
+                      <label for="pixName">Nome</label>
+                      <input
+                        type="text"
+                        id="pixName"
+                        class="form-control"
+                        required
+                      />
+                      <span class="error-message" id="pixNameError"
+                        >Nome deve conter apenas letras</span
+                      >
+                    </div>
+                    <div class="form-group">
+                      <label for="pixCpf">CPF</label>
+                      <input
+                        type="text"
+                        id="pixCpf"
+                        class="form-control"
+                        maxlength="11"
+                        required
+                      />
+                      <span class="error-message" id="pixCpfError"
+                        >CPF deve conter 11 dígitos</span
+                      >
+                    </div>
+                    <button type="submit" class="btn-2">Pagar</button>
+                  </form>
+                </div>
+                <div class="qr-container" id="qrContainer">
+                  <h3 class="text-center">Escaneie o QR Code para pagar:</h3>
+                  <img src="../../img/qrcode.png" alt="QR Code PIX" />
+                  <p class="text-center">
+                    <button class="btn-2" onclick="redirectToMenu()">
+                      Já Pagou? - Recarregar Página
+                    </button>
+                  </p>
+                  <script>
+                    function redirectToMenu() {
+                      window.location.href = "../index.html";
+                    }
+                  </script>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- Main End -->
+    </div>
+    <!-- Page End -->
+
+    <!-- Vendor Javascript Files -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/easing/js/easing.min.js"></script>
+    <script src="../vendor/parsley/js/parsley.min.js"></script>
+    <script src="../vendor/nice-select/js/jquery.nice-select.min.js"></script>
+    <script src="../vendor/price-format/js/jquery.priceformat.min.js"></script>
+    <script src="../vendor/theia-sticky-sidebar/js/ResizeSensor.min.js"></script>
+    <script src="../vendor/theia-sticky-sidebar/js/theia-sticky-sidebar.min.js"></script>
+    <script src="../vendor/mmenu/js/mmenu.min.js"></script>
+    <script src="../vendor/magnific-popup/js/jquery.magnific-popup.min.js"></script>
+    <script src="../vendor/float-labels/js/float-labels.min.js"></script>
+    <script src="../vendor/jquery-wizard/js/jquery-ui-1.8.22.min.js"></script>
+    <script src="../vendor/jquery-wizard/js/jquery.wizard.js"></script>
+    <script src="../vendor/isotope/js/isotope.pkgd.min.js"></script>
+    <script src="../vendor/scrollreveal/js/scrollreveal.min.js"></script>
+    <script src="../vendor/lazyload/js/lazyload.min.js"></script>
+    <script src="../vendor/sticky-kit/js/sticky-kit.min.js"></script>
+
+    <!-- Main Javascript File -->
+    <script src="../js/scripts.js"></script>
+
+    <!-- Payment Script -->
+    <script>
+      function validatePixForm() {
+        let isValid = true;
+
+        // Clear previous error messages
+        document.querySelectorAll(".error-message").forEach((error) => {
+          error.style.display = "none";
+        });
+
+        // Validate name
+        const pixName = document.getElementById("pixName").value;
+        if (!/^[A-Za-z\s]+$/.test(pixName)) {
+          document.getElementById("pixNameError").style.display = "block";
+          isValid = false;
+        }
+
+        // Validate CPF
+        const pixCpf = document.getElementById("pixCpf").value;
+        if (!/^\d{11}$/.test(pixCpf)) {
+          document.getElementById("pixCpfError").style.display = "block";
+          isValid = false;
+        }
+
+        // If all fields are valid, show QR code
+        if (isValid) {
+          document.querySelector(".form-container").style.display = "none";
+          document.getElementById("qrContainer").style.display = "block";
+
+          // Redirect after 2 minutes
+          setTimeout(() => {
+            window.location.href = "./thank-you.html";
+          }, 120000); // 120000 ms = 2 minutos
+        }
+
+        return false; // Prevent form submission
+      }
+
+      function reloadPage() {
+        window.location.href = "./thank-you.html";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="Utilize o método de Pagamento" />
+    <meta name="author" content="UWS" />
+    <title>PAGAMENTO | Payment</title>
+
+    <!-- Favicon -->
+    <link href="../img/favicon.png" rel="shortcut icon" />
+
+    <!-- Google Fonts - Jost -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome CSS -->
+    <link
+      href="../vendor/font-awesome/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom Font Icons -->
+    <link href="../vendor/icomoon/css/iconfont.min.css" rel="stylesheet" />
+
+    <!-- Vendor CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../vendor/dmenu/css/menu.css" rel="stylesheet" />
+    <link href="../vendor/hamburgers/css/hamburgers.min.css" rel="stylesheet" />
+    <link href="../vendor/mmenu/css/mmenu.min.css" rel="stylesheet" />
+    <link
+      href="../vendor/magnific-popup/css/magnific-popup.css"
+      rel="stylesheet"
+    />
+    <link
+      href="../vendor/float-labels/css/float-labels.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Main CSS -->
+    <link href="./../css/style.css" rel="stylesheet" />
+
+    <!-- Custom CSS for form styling -->
+    <style>
+      .form-container {
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background: #fff;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      .form-group label {
+        font-weight: bold;
+      }
+      .btn-2 {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #ff6600;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        font-size: 16px;
+      }
+      .btn-2:hover {
+        background: #e65c00;
+      }
+      .error-message {
+        color: red;
+        font-size: 14px;
+        display: none;
+      }
+      .text-center {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div id="preloader">
+      <div data-loader="circle-side"></div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- Page -->
+    <div id="page">
+      <!-- Header -->
+      <header class="main-header sticky">
+        <a href="#menu" class="btn-mobile">
+          <div class="hamburger hamburger--spin" id="hamburger">
+            <div class="hamburger-box">
+              <div class="hamburger-inner"></div>
+            </div>
+          </div>
+        </a>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-6"></div>
+            <div class="col-lg-9 col-6">
+              <ul id="menuIcons">
+                <li></li>
+                <li>
+                  <a href="#"><i class="icon icon-shopping-cart2"></i></a>
+                </li>
+              </ul>
+              <!-- Menu -->
+              <nav id="menu" class="main-menu">
+                <ul>
+                  <li>
+                    <span><a href="../index.html">Início</a></span>
+                  </li>
+                  <li>
+                    <span
+                      ><a href="../index.html"
+                        >Pedido <i class="fa fa-chevron-down"></i></a
+                    ></span>
+                    <ul>
+                      <li>
+                        <span><a href="#">Pague de Casa</a></span>
+                      </li>
+                      <li>
+                        <span
+                          ><a href="../pay-with-cash-on-delivery/thank-you.html"
+                            >Pague no Restaurante</a
+                          ></span
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <span><a href="../faq.html">Perguntas Frequentes</a></span>
+                  </li>
+                </ul>
+              </nav>
+              <!-- Menu End -->
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Header End -->
+
+      <!-- Main -->
+      <main>
+        <div class="confirm-wrap">
+          <!-- Container -->
+          <div class="container">
+            <!-- Row -->
+            <div class="row">
+              <!-- Left Sidebar -->
+              <div class="col-lg-12" id="mainContent">
+                <div class="form-container">
+                  <h3 class="text-center">Pagamento com Cartão de Crédito:</h3>
+                  <form id="paymentForm" onsubmit="return validateForm()">
+                    <div class="form-group">
+                      <label for="cardNumber">Número do Cartão</label>
+                      <input
+                        type="text"
+                        id="cardNumber"
+                        class="form-control"
+                        maxlength="16"
+                        required
+                      />
+                      <span class="error-message" id="cardNumberError"
+                        >Número do cartão deve ter 16 dígitos</span
+                      >
+                    </div>
+                    <div class="form-group">
+                      <label for="cardName">Nome no Cartão</label>
+                      <input
+                        type="text"
+                        id="cardName"
+                        class="form-control"
+                        required
+                      />
+                      <span class="error-message" id="cardNameError"
+                        >Nome no cartão deve conter apenas letras</span
+                      >
+                    </div>
+                    <div class="form-group">
+                      <label for="expiryDate">Data de Validade</label>
+                      <input
+                        type="text"
+                        id="expiryDate"
+                        class="form-control"
+                        placeholder="MM/AA"
+                        required
+                      />
+                      <span class="error-message" id="expiryDateError"
+                        >Formato de data inválido (MM/AA)</span
+                      >
+                    </div>
+                    <div class="form-group">
+                      <label for="cvv">CVV</label>
+                      <input
+                        type="text"
+                        id="cvv"
+                        class="form-control"
+                        maxlength="3"
+                        required
+                      />
+                      <span class="error-message" id="cvvError"
+                        >CVV deve ter 3 dígitos</span
+                      >
+                    </div>
+                    <button type="submit" class="btn-2">Pagar</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- Main End -->
+    </div>
+    <!-- Page End -->
+
+    <!-- Vendor Javascript Files -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/easing/js/easing.min.js"></script>
+    <script src="../vendor/parsley/js/parsley.min.js"></script>
+    <script src="../vendor/nice-select/js/jquery.nice-select.min.js"></script>
+    <script src="../vendor/price-format/js/jquery.priceformat.min.js"></script>
+    <script src="../vendor/theia-sticky-sidebar/js/ResizeSensor.min.js"></script>
+    <script src="../vendor/theia-sticky-sidebar/js/theia-sticky-sidebar.min.js"></script>
+    <script src="../vendor/mmenu/js/mmenu.min.js"></script>
+    <script src="../vendor/magnific-popup/js/jquery.magnific-popup.min.js"></script>
+    <script src="../vendor/float-labels/js/float-labels.min.js"></script>
+    <script src="../vendor/jquery-wizard/js/jquery-ui-1.8.22.min.js"></script>
+    <script src="../vendor/jquery-wizard/js/jquery.wizard.js"></script>
+    <script src="../vendor/isotope/js/isotope.pkgd.min.js"></script>
+    <script src="../vendor/scrollreveal/js/scrollreveal.min.js"></script>
+    <script src="../vendor/lazyload/js/lazyload.min.js"></script>
+    <script src="../vendor/sticky-kit/js/sticky-kit.min.js"></script>
+
+    <!-- Main Javascript File -->
+    <script src="../js/scripts.js"></script>
+
+    <!-- Payment Script -->
+    <script>
+      function validateForm() {
+        let isValid = true;
+
+        // Clear previous error messages
+        document.querySelectorAll(".error-message").forEach((error) => {
+          error.style.display = "none";
+        });
+
+        // Validate card number
+        const cardNumber = document.getElementById("cardNumber").value;
+        if (!/^\d{16}$/.test(cardNumber)) {
+          document.getElementById("cardNumberError").style.display = "block";
+          isValid = false;
+        }
+
+        // Validate card name
+        const cardName = document.getElementById("cardName").value;
+        if (!/^[A-Za-z\s]+$/.test(cardName)) {
+          document.getElementById("cardNameError").style.display = "block";
+          isValid = false;
+        }
+
+        // Validate expiry date
+        const expiryDate = document.getElementById("expiryDate").value;
+        if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(expiryDate)) {
+          document.getElementById("expiryDateError").style.display = "block";
+          isValid = false;
+        }
+
+        // Validate CVV
+        const cvv = document.getElementById("cvv").value;
+        if (!/^\d{3}$/.test(cvv)) {
+          document.getElementById("cvvError").style.display = "block";
+          isValid = false;
+        }
+
+        // If all fields are valid, redirect to thank you page
+        if (isValid) {
+          setTimeout(() => {
+            window.location.href = "redirect.html";
+          }, 2000); // Redirect after 2 seconds
+        }
+
+        return false; // Prevent form submission
+      }
+    </script>
+  </body>
+</html>

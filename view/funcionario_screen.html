@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mesa Fácil - Disciplina de MDS</title>
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <meta content="" name="keywords" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" />
+    <link href="/css/plugins.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900%7CPlayfair+Display:500,600,700,800,900" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="img/logo.png" type="image/x-icon" />
+    <link rel="icon" href="img/logo.jpg" type="image/png" />
+    <link href="./payment/vendor/icomoon/css/iconfont.css" rel="stylesheet" /> 
+    <link href="./payment/vendor/icomoon/css/iconfont.min.css" rel="stylesheet" /> 
+  </head>
+  <body>
+    <div class="border-top"></div>
+      <div id="header" class="fadeIn-element">
+      <nav class="navbar navbar-fixed-top navbar-bg-switch">
+        <div class="container-fluid">
+          <div class="main-navigation">
+            <div class="navbar-header">
+              <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#navbar-collapse" data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle Navegação</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand hidden-sm hidden-md hidden-lg logo active" href="#">
+                <img alt="Logo" class="logo-light" src="img/logo-light.png" />
+                <img alt="Logo" class="logo-dark" src="img/logo-dark.png" />
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="index-01.html">Home</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#works">Menu</a></li>
+                <li class="hidden-xs">
+                  <a class="logo" href="#">
+                    <img alt="Logo" class="logo-light" src="img/logo-light.png" />
+                    <img alt="Logo" class="logo-dark" src="img/logo-dark.png" />
+                  </a>
+                </li>
+                <li><a href="#blog">Notícias</a></li>
+                <li><a href="#contact">Contato</a></li>
+                <li><a href="/login.html">Logout</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="upper-page" id="home">
+      <div class="section-all bg-light">
+        <div class="hero-fullscreen-FIX">
+          <div class="hero-bg">
+            <div class="swiper-container swiper2">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="swiper-slide-inner">
+                    <div class="swiper-slide-inner-bg bg-img-1 overlay overlay-dark"></div>
+                    <div class="swiper-slide-inner-txt-2">
+                      <div class="section-title section-title-home fadeIn-element">
+                        <h2 class="section-title-line section-title-line-home">
+                          <span>Disciplina de MDS</span>
+                        </h2>
+                      </div>
+                      <h1 class="hero-heading hero-heading-home fadeIn-element">
+                        <span id="welcomeMessage"></span>
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-all bg-light" style="padding-bottom: 40px;">
+      <div class="container" style="background-color: #f0f0f0; border: 2px solid #ccc; padding-top: 40px; border-radius: 34px; padding-bottom: 40px; width: 50%; text-align: center; display: flex; align-items: center; flex-direction: column; margin-top: 30px;">
+        <div class="divider-xl-1">
+          <h2>Adicionar Pedido</h2>
+          <form id="adicionarPedidoForm">
+            <label for="produtoId">ID do Produto:</label>
+            <input type="text" id="produtoId" name="produtoId" required /><br />
+            <label for="quantidade">Quantidade:</label>
+            <input type="text" id="quantidade" name="quantidade" required /><br />
+            <label for="mesaId">ID da Mesa:</label>
+            <input type="text" id="mesaId" name="mesaId" required /><br />
+            <label for="clienteId">ID do Cliente:</label>
+            <input type="text" id="clienteId" name="clienteId" required /><br />
+            <button type="submit" style="font-size: 15px; padding: 10px 20px; width: 200px; height: 40px; border: 1px solid #ccc; border-radius: 4px; background-color: #ffffff; font-weight: bold; margin-top: 20px;">Adicionar Pedido</button>
+          </form>
+          <div id="adicionarPedidoResult"></div>
+        </div>
+      </div>
+    </div>
+    <div class="section-all bg-light" style="padding-bottom: 40px;">
+      <div class="container" style="background-color: #f0f0f0; border: 2px solid #ccc; padding-top: 40px; border-radius: 34px; padding-bottom: 40px; width: 50%; text-align: center; display: flex; align-items: center; flex-direction: column; margin-top: 30px;">
+        <div class="divider-xl-1">
+          <div id="mesasPedidosWrapper">
+            <div id="mesasList" class="clearfix" style="text-align: center; margin-top: 20px;"></div>
+            <div id="pedidosList" class="clearfix" style="text-align: center; margin-top: 50px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="extra-margin-container"></div>
+    </div>
+    <div class="vertical-lines-wrapper">
+      <div class="vertical-lines"></div>
+    </div>
+    <div id="about" class="section-all bg-light">
+      <div class="divider-xl"></div>
+      <div class="container">
+        <div class="extra-margin-container">
+          <div class="reservation-wrapper fadeIn-element">
+            <div class="container">
+              <div class="extra-margin-container">
+                <div class="reservation-inner clearfix">       
+                </div>
+              </div>
+            </div>
+
+    <script src="/js/plugins.js"></script>
+    <script src="/js/dinex.js"></script>
+    <script src="/js/script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const user = JSON.parse(sessionStorage.getItem("user"));
+
+        if (user) {
+          const welcomeMessage = document.getElementById("welcomeMessage");
+          welcomeMessage.textContent = `Bem-vindo, ${user.nome}`;
+        } else {
+          window.location.href = "/login.html";
+        }
+
+        // Fetch and display mesas
+        fetch("/api/listar_mesas")
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            const mesasList = document.getElementById("mesasList");
+            if (data.message) {
+              mesasList.innerHTML = `<p>${data.message}</p>`;
+            } else {
+              let mesasHtml = "<ul>";
+              data.forEach((mesa) => {
+                mesasHtml += `
+              <li>
+                Mesa ID: ${mesa.mesaId}, Capacidade: ${mesa.capacidade}, Disponível: ${mesa.disponivel}
+                <button onclick="listarPedidos(${mesa.mesaId})" style="font-size: 12px; padding: 5px 10px; margin-left: 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #ffffff;">Listar Pedidos</button>
+                <button onclick="fecharConta(${mesa.mesaId})" style="font-size: 12px; padding: 5px 10px; margin-left: 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #ffffff;">Fechar Comanda</button>
+                </li>`;
+              });
+              mesasHtml += "</ul>";
+              mesasList.innerHTML = mesasHtml;
+            }
+          })
+          .catch((error) => {
+            console.error("Erro ao listar mesas:", error);
+            document.getElementById("mesasList").innerHTML =
+              "<p>Erro ao carregar mesas.</p>";
+          });
+      });
+
+      document
+        .getElementById("adicionarPedidoForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const produtoId = document.getElementById("produtoId").value;
+          const quantidade = document.getElementById("quantidade").value;
+          const mesaId = document.getElementById("mesaId").value;
+          const clienteId = document.getElementById("clienteId").value;
+
+          fetch("/api/adicionar_pedido", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              produtoId: produtoId,
+              quantidade: quantidade,
+              mesaId: mesaId,
+              clienteId: clienteId,
+            }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              const resultDiv = document.getElementById("adicionarPedidoResult");
+              resultDiv.innerHTML = `<p>${data.message}</p>`;
+            })
+            .catch((error) => {
+              console.error("Erro ao adicionar pedido:", error);
+              document.getElementById("adicionarPedidoResult").innerHTML =
+                "<p>Pedido Adicionado com Sucesso</p>";
+            });
+        });
+
+        function listarPedidos(mesaId) {
+        fetch(`/api/listar_pedidos/${mesaId}`)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            const pedidosList = document.getElementById("pedidosList");
+            if (data.message) {
+              pedidosList.innerHTML = `<p>${data.message}</p>`;
+            } else {
+              let pedidosHtml = "<ul>";
+              data.forEach((pedido) => {
+                pedidosHtml += `
+              <li>
+                Pedido ID: ${pedido.pedidoId}, Produto: ${pedido.produtoId}, Quantidade: ${pedido.quantidade}, Valor Unitário: R$${pedido.valorUnitario}, Status: R$${pedido.statusPedido}
+
+                <button onclick="apagarPedido(${pedido.pedidoId})">Apagar Pedido</button>
+
+                <select id="statusPedido${pedido.pedidoId}">
+                <option value="pendente">Pendente</option>
+                <option value="em preparo">Preparando</option>
+                <option value="finalizado">Finalizado</option>
+                </select>
+                <button onclick="atualizarStatusPedido(${pedido.pedidoId}, document.getElementById('statusPedido${pedido.pedidoId}').value)">Atualizar Status</button>
+              </li>`;
+              });
+              pedidosHtml += "</ul>";
+              pedidosList.innerHTML = pedidosHtml;
+            }
+          })
+          .catch((error) => {
+            console.error(`Erro ao listar pedidos para a mesa ${mesaId}:`, error);
+            document.getElementById("pedidosList").innerHTML =
+              "<p>Erro ao carregar pedidos.</p>";
+          });
+      }
+
+      function fecharConta(mesaId) {
+        fetch(`/api/listar_pedidos_finalizados/${mesaId}`)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            const pedidosList = document.getElementById("pedidosList");
+            let pedidosHtml = "";
+
+            if (data.message) {
+              pedidosHtml = `<p>${data.message}</p>`;
+              pedidosList.innerHTML = pedidosHtml;
+            } else {
+              pedidosHtml += "<ul>";
+              data.forEach((pedido) => {
+                pedidosHtml += `
+                  <li>
+                    Pedido ID: ${pedido.pedidoId}, Produto: ${pedido.produtoId}, Quantidade: ${pedido.quantidade}, Valor Unitário: R$${pedido.valorUnitario}
+                    <button onclick="apagarPedido(${pedido.pedidoId})">Apagar Pedido</button>
+                  </li>`;
+              });
+              pedidosHtml += "</ul>";
+
+              // Requisição para obter o valor total finalizado
+              fetch(`/api/calcular_valor_total_finalizados/${mesaId}`)
+                .then((response) => {
+                  if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                  }
+                  return response.json();
+                })
+                .then((data) => {
+                  console.log("Valor total recebido:", data.valorTotal); // Adiciona um log para verificar a resposta
+                  if (typeof data.valorTotal === 'string') {
+                    // Adiciona o texto "Valor final" com o valor total
+                    pedidosHtml = `<p>Valor final: R$${data.valorTotal}</p>` + pedidosHtml;
+                  } else {
+                    throw new Error("Valor total não é uma string");
+                  }
+
+                  // Adiciona o botão ao final da lista
+                  pedidosHtml += `<button onclick="finalizarConta(${mesaId})">Finalizar Conta</button>`;
+
+                  pedidosList.innerHTML = pedidosHtml;
+                })
+                .catch((error) => {
+                  console.error(`Erro ao calcular valor total para a mesa ${mesaId}:`, error);
+                  pedidosList.innerHTML = "<p>Erro ao calcular valor total.</p>";
+                });
+            }
+          })
+          .catch((error) => {
+            console.error(`Erro ao listar pedidos para a mesa ${mesaId}:`, error);
+            document.getElementById("pedidosList").innerHTML = "<p>Erro ao carregar pedidos.</p>";
+          });
+      }
+
+      function finalizarConta(mesaid) {
+        fetch(`/api/finalizar_pedido/${mesaid}`, {
+          method: 'POST'
+        })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          if (data.success) {
+            alert('Conta finalizada com sucesso!');
+            fecharConta(mesaid); // Atualiza a lista de pedidos após finalizar a conta
+          } else {
+            alert('Erro ao finalizar a conta.');
+          }
+        })
+        .catch((error) => {
+          console.error(`Erro ao finalizar a conta para a mesa ${mesaid}:`, error);
+          alert('Erro ao finalizar a conta.');
+        });
+      }
+
+
+
+
+
+      function apagarPedido(pedidoId) {
+        fetch("/api/apagar_pedido", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ pedidoId: pedidoId }),
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.text();
+          })
+          .then((message) => {
+            alert(message);
+            // Optionally refresh the list of pedidos
+            const pedidosList = document.getElementById("pedidosList");
+            pedidosList.innerHTML = "";
+          })
+          .catch((error) => {
+            // console.error(`Erro ao apagar pedido ${pedidoId}:`, error);
+            alert("Erro ao apagar pedido.");
+          });
+      }
+
+      function atualizarStatusPedido(pedidoId, novoStatus) {
+        console.error(novoStatus)
+        fetch("/api/atualizar_status_pedido", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ pedidoId: pedidoId, novoStatus: novoStatus}),
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.text();
+          })
+          .then((message) => {
+            alert(message);
+            // Optionally refresh the list of pedidos
+            const pedidosList = document.getElementById("pedidosList");
+            pedidosList.innerHTML = "";
+          })
+          .catch((error) => {
+            console.error(`Erro ao atualizar ${pedidoId}:`, error);
+            alert("Erro ao apagar atualizar.");
+          });
+      }
+    </script>
+  </body>
+</html>
