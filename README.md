@@ -1,8 +1,10 @@
+Sim, eu posso entender os arquivos que você me enviou e gerar um README a partir dessas informações. Aqui está o README gerado:
+
 # Sistema de Gerenciamento de Restaurantes VEGA
 
 ## Visão Geral do Projeto
 
-O Sistema de Gerenciamento de Restaurantes VEGA é uma aplicação web abrangente projetada para facilitar as operações de um restaurante. Este projeto inclui funcionalidades para gerenciar reservas de mesas, registro e login de usuários, e processamento de pagamentos tanto online quanto no restaurante. O sistema segue a arquitetura MVC (Model-View-Controller) e é construído usando Node.js para o backend, com PostgreSQL como banco de dados.
+O Sistema de Gerenciamento de Restaurantes VEGA é uma aplicação web abrangente projetada para facilitar as operações de um restaurante. Este projeto inclui funcionalidades para gerenciar reservas de mesas, registro e login de usuários, e processamento de pagamentos tanto online quanto no restaurante. O sistema segue a arquitetura MVC (Model-View-Controller) e é construído usando Node.js e Express para o backend, com PostgreSQL como banco de dados.
 
 ## Funcionalidades
 
@@ -27,6 +29,10 @@ O Sistema de Gerenciamento de Restaurantes VEGA é uma aplicação web abrangent
 Antes de começar, certifique-se de ter atendido aos seguintes requisitos:
 
 - [Node.js](https://nodejs.org/en/download/) instalado na sua máquina.
+- [Express.js](https://expressjs.com/pt-br/starter/installing.html) instalado. Você pode instalá-lo usando o seguinte comando:
+  ```sh
+  npm install express
+  ```
 - [PostgreSQL](https://www.postgresql.org/download/) instalado e em execução.
 - [pgAdmin](https://www.pgadmin.org/download/) instalado para gerenciar o banco de dados PostgreSQL.
 - Um editor de código como [Visual Studio Code](https://code.visualstudio.com/).
@@ -69,7 +75,7 @@ Certifique-se de que PostgreSQL e pgAdmin estão instalados e em execução no s
 - **Acessando a Aplicação:** Abra seu navegador e navegue até http://localhost:3000.
 - **Funções Administrativas:** Navegue até o painel de administração para gerenciar as operações do restaurante.
 - **Reservas:** Usuários podem reservar mesas através do formulário de reserva.
-- **Pagamentos:** Processar pagamentos diretamente na plataforma via PIX  e Cartão de Crédito.
+- **Pagamentos:** Processar pagamentos diretamente na plataforma.
 
 ## Desenvolvimento
 
