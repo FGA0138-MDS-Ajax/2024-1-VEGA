@@ -85,7 +85,7 @@ Certifique-se de que PostgreSQL e pgAdmin estão instalados e em execução no s
 npm start
 ```
 
-**Executar Testes**
+**Executar Testes** (Não recomendado)
 ```sh
 npm test
 ```
