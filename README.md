@@ -69,6 +69,9 @@ Antes de começar, certifique-se de ter atendido aos seguintes requisitos:
 ## Gestão do Banco de Dados
 Certifique-se de que PostgreSQL e pgAdmin estão instalados e em execução no seu sistema. Você pode baixá-los do site oficial do PostgreSQL e do site oficial do pgAdmin.
 
+## Configuração do banco de dados
+Dentro das pastas do projeto, há uma pasta chamada 'BancoDeDados'. Dentro dessa pasta, há uma parte do código chamada 'Criando o Banco de Dados'. Copie esse código e execute-o no PGAdmin 4 do PostgreSQL. Uma vez criado o banco de dados, devemos popular alguns campos. Para isso, volte à pasta 'BancoDeDados' e copie a parte chamada 'Popular bancos de dados' e também execute no PGAdmin 4.
+
 ## Uso
 - **Acessando a Aplicação:** Abra seu navegador e navegue até http://localhost:3000.
 - **Funções Administrativas:** Navegue até o painel de administração para gerenciar as operações do restaurante.
