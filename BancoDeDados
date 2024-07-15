@@ -1,0 +1,122 @@
+                                                      -- Cria banco de dados --
+
+-- Cria a tabela Funcionario
+CREATE TABLE Funcionario (
+  nome VARCHAR(30) NOT NULL,
+  endereco VARCHAR(30) NOT NULL,
+  cpf VARCHAR NOT NULL,
+  dataDeNascimento VARCHAR,
+  especializacao VARCHAR(10) NOT NULL,
+  quantidadeDeMesas VARCHAR,
+  senha VARCHAR
+);
+
+-- Cria a tabela Cliente
+CREATE TABLE Cliente (
+  clienteId SERIAL PRIMARY KEY,
+  nome VARCHAR(255) NOT NULL,
+  cpf VARCHAR NOT NULL,
+  telefone VARCHAR(20) NOT NULL,
+	endereco VARCHAR(30) NOT NULL,
+  senha VARCHAR NOT NULL
+  );
+
+-- Cria a tabela Pedidos
+CREATE TYPE statusPedido AS ENUM ('pendente', 'em preparo', 'pronto', 'finalizado');
+CREATE TABLE Pedidos (
+  pedidoId SERIAL PRIMARY KEY,
+	produtoId VARCHAR NOT NULL,
+  quantidade VARCHAR NOT NULL,
+  valorUnitario VARCHAR NOT NULL,
+  mesaId VARCHAR NOT NULL,
+  clienteId VARCHAR NOT NULL,
+  data_horaPedido VARCHAR NOT NULL,
+  statusPedido statusPedido NOT NULL DEFAULT 'pendente',
+  observacao VARCHAR(255)
+); 
+
+-- Cria a tabela Carrinho
+CREATE TABLE Carrinho (
+  pedidoId SERIAL PRIMARY KEY,
+	produtoId VARCHAR NOT NULL,
+  quantidade VARCHAR NOT NULL,
+  valorUnitario VARCHAR NOT NULL,
+  mesaId VARCHAR NOT NULL,
+  clienteId VARCHAR NOT NULL,
+  data_horaPedido VARCHAR NOT NULL,
+  statusPedido statusPedido NOT NULL DEFAULT 'pendente',
+  observacao VARCHAR(255)
+); 
+
+-- Cria a tabela Finalizado
+CREATE TABLE Finalizado (
+  pedidoId SERIAL PRIMARY KEY,
+	produtoId VARCHAR NOT NULL,
+  quantidade VARCHAR NOT NULL,
+  valorUnitario VARCHAR NOT NULL,
+  mesaId VARCHAR NOT NULL,
+  clienteId VARCHAR NOT NULL,
+  data_horaPedido VARCHAR NOT NULL,
+  statusPedido statusPedido NOT NULL DEFAULT 'pendente',
+  observacao VARCHAR(255)
+); 
+
+
+-- Cria a tabela Produtos (Cardapio)
+CREATE TABLE Produtos (
+  produtoId SERIAL PRIMARY KEY,
+  nome VARCHAR(255) NOT NULL,
+  descricao VARCHAR(255),
+  categoria VARCHAR(100),
+  preco VARCHAR NOT NULL
+);
+
+-- Cria a tabela estoque
+CREATE TABLE estoque (
+	itemID SERIAL PRIMARY KEY,
+	nomeDoItem VARCHAR(30) NOT Null,
+	quantidadeEmEstoque VARCHAR NOT Null,
+	valorDoItem VARCHAR NOT Null,
+	dataDeCadastro VARCHAR NOT Null 
+);
+
+-- Cria a tabela from
+CREATE TABLE form (
+	nome VARCHAR(50),
+	email VARCHAR(100),
+	subject VARCHAR(100),
+	mensagem VARCHAR(500)
+);
+
+-- Cria a tabela Mesas
+CREATE TABLE Mesas (
+  mesaId SERIAL PRIMARY KEY,
+  email VARCHAR(100),--
+  disponivel BOOLEAN DEFAULT TRUE,
+  dataDaReserva VARCHAR(100),--
+  horaDaReserva VARCHAR(100) ,--
+  capacidade INT NOT NULL,
+  persons VARCHAR(100)--
+);
+
+                                                  -- Polar banco de dados --
+-- popula a tabela messas
+INSERT INTO Mesas (email, disponivel, dataDaReserva, horaDaReserva, capacidade, persons)
+VALUES 
+  ('', TRUE, '', '', 4, ''),
+  ('', TRUE, '', '', 6, ''),
+  ('', TRUE, '', '', 2, ''),
+  ('', TRUE, '', '', 8, ''),
+  ('', TRUE, '', '', 4, ''),
+  ('', TRUE, '', '', 6, ''),
+  ('', TRUE, '', '', 3, ''),
+  ('', TRUE, '', '', 5, ''),
+  ('', TRUE, '', '', 4, ''),
+  ('', TRUE, '', '', 6, '');
+
+-- Insere dados na tabela Funcionario
+INSERT INTO Funcionario (nome, endereco, cpf, dataDeNascimento, especializacao, quantidadeDeMesas, senha)
+VALUES
+  ('Carlos Silva', 'Rua A, 123', '12345678901', '1980-01-15', 'Garçom', '5', 'senha123'),
+  ('Ana Pereira', 'Avenida B, 456', '23456789012', '1992-02-20', 'Cozinheira', NULL, 'senha456'),
+  ('Marcos Souza', 'Travessa C, 789', '34567890123', '1985-03-25', 'Garçom', '3', 'senha789');
