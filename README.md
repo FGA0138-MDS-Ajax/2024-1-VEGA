@@ -1,5 +1,3 @@
-Sim, eu posso entender os arquivos que você me enviou e gerar um README a partir dessas informações. Aqui está o README gerado:
-
 # Sistema de Gerenciamento de Restaurantes VEGA
 
 ## Visão Geral do Projeto
